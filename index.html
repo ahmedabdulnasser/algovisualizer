@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sieve</title>
+    <style>
+        #parent, #primes_area{
+            display: grid;
+            width:80%;
+            grid-template-columns: repeat(auto-fill, minmax(40px, auto));
+        }
+        #parent div, #primes_area div{
+            border:1px solid black;
+        }
+        #parent .not_prime{
+            background-color: red;
+
+        }
+        #parent .prime{
+            background-color: green;
+        }
+        .select{
+            background-color:blue !important;
+            opacity: .2;
+        }
+        .select-outer{
+            border: 10px solid yellow !important;
+        }
+    </style>
+</head>
+<body>
+    <div id = "form">
+        <label>enter N </label>
+        <input id = "size" placeholder="n">
+        <button onclick = "play()" id = "ok">ok</button>
+    </div>
+    <div id = "parent">
+    </div>
+    <div id = "primes_area">
+    </div>
+    <script src = "sieve.js"></script>
+</body>
+</html>
