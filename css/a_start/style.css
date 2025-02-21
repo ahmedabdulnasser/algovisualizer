@@ -5,12 +5,13 @@
     align-items: center; 
     justify-content: center;
     background-color: #f0f0f0;
+    overflow: auto;
 }
 
 .custom_grid {
     display: grid;
-    grid-template-columns: repeat(var(--num-cols), 20px); 
-    grid-template-rows: repeat(var(--num-rows), 20px);
+    grid-template-columns: repeat(var(--num-cols), var(--size)); 
+    grid-template-rows: repeat(var(--num-rows), var(--size));
     background-color: rgb(96, 99, 100);
 }
 
