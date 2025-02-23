@@ -29,7 +29,7 @@
 class Main {
     constructor() {
         this.grid = document.getElementById('grid');
-        this.size = 20;
+        this.size = 60;
         this.squareList = [];
         this.start = null;
         this.end = null;
@@ -55,14 +55,18 @@ class Main {
         this.squareList = [];
         this.grid.innerHTML = '';
 
-        for (let i = 0; i < numRows; i++) {
-            for (let j = 0; j < numCols; j++) {
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 1; j++) {
                 const square = document.createElement('div');
                 square.style.width = `${this.size}px`;
                 square.style.height = `${this.size}px`;
                 square.dataset.clicked = "false";
+                square.dataset.Hcost = 0;
+                square.dataset.Gcost = 0;
+                square.dataset.Fcost = 0;
                 square.classList.add('square');
                 this.grid.appendChild(square);
+                this.drawCosts(square);
 
                 square.addEventListener('mousedown', (e) => {
                     this.isMouseDown = true;
@@ -91,6 +95,23 @@ class Main {
     toggleSquareColor(square, color="black") {
         square.style.backgroundColor = color;
         square.dataset.clicked = square.dataset.clicked === "true" ? "false" : "true";
+    }
+
+    drawCosts(square) {
+        const Hcost = document.createElement('p');
+        Hcost.classList.add('hcost');
+        Hcost.textContent = square.dataset.Hcost;
+        square.appendChild(Hcost);
+
+        const Gcost = document.createElement('p');
+        Gcost.classList.add('gcost');
+        Gcost.textContent = square.dataset.Gcost;
+        square.appendChild(Gcost);
+
+        const Fcost = document.createElement('p');
+        Fcost.classList.add('fcost');
+        Fcost.textContent = square.dataset.Fcost;
+        square.appendChild(Fcost);
     }
 }
 
