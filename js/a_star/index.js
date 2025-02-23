@@ -45,8 +45,8 @@ class Main {
     paintComponent() {
         const gridParent = this.grid.parentNode;
 
-        const numCols = Math.floor(gridParent.offsetWidth / this.size);
-        const numRows = Math.floor(gridParent.offsetHeight / this.size);
+        const numCols = Math.floor(gridParent.offsetWidth / this.size) - 1;
+        const numRows = Math.floor(gridParent.offsetHeight / this.size) - 1;
 
         this.grid.style.setProperty('--num-cols', numCols);
         this.grid.style.setProperty('--num-rows', numRows);
