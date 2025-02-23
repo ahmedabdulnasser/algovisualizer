@@ -16,6 +16,37 @@
 }
 
 .square {
+    position: relative;
     background-color: #fff;
     border: 1px solid #000;
+}
+
+/* .square.gcost {
+    bottom: 2%;
+    left: 2%;
+    font-size: calc(var(--size) * 0.5);
+} */
+
+.gcost {
+    position: absolute;
+    bottom: 0.5%;
+    left: 2%;
+    font-size: calc(var(--size) * 0.2);
+    margin: 0;
+}
+
+.hcost {
+    position: absolute;
+    bottom: 0.5%;
+    right: 4%;
+    font-size: calc(var(--size) * 0.2);
+    margin: 0;
+}
+
+.fcost {
+    position: absolute;
+    top: 0.5%;
+    left: 2%;
+    font-size: calc(var(--size) * 0.4);
+    margin: 0;
 }
