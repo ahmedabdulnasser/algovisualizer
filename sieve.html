@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent-grid{
+            height:100vh;
+            width: 100%;
+            display: grid;
+            grid-template-rows: 1fr 10fr 1fr;
+        }
+        
+        .parent-grid > div{
+            border: 1px solid red;
+        }
+        #row2-div{
+            display: grid;
+            height: 100%;
+            width: 100%;
+            grid-template-columns: 3fr 2fr;
+        }
+        #row2-div > div{
+            border:1px solid red;
+        }
+        #buttons{
+            display: grid;
+            height: 100%;
+            width:50%;
+            grid-template-columns: repeat(5, 1fr);
+        }
+        #buttons img{
+            max-width: 10%;
+        }
+        #parent, #primes_area{
+            display: grid;
+            width:80%;
+            grid-template-columns: repeat(auto-fill, minmax(40px, auto));
+        }
+        #parent div, #primes_area div{
+            border:1px solid black;
+        }
+        #parent .not_prime{
+            background-color: red;
+
+        }
+        #parent .prime{
+            background-color: green;
+        }
+        .select{
+            background-color:blue !important;
+            opacity: .2;
+        }
+        .select-outer{
+            border: 10px solid yellow !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent-grid">
+        <div id = "buttons">
+            <button onclick="resume()">
+                <img src = "/images/resume.png">
+            </button>
+            <button onclick="stop()">
+                <img src = "/images/stop.png">
+            </button>
+            <button onclick="speedup()">
+                <img src = "/images/speedup.png">
+            </button>
+            <button onclick="speeddown()">
+                <img src = "/images/speeddown.png">
+            </button>
+        </div>
+        <div id = "row2-div">
+            <div id = "visuals">
+                
+    <div id = "form">
+        <label>enter N </label>
+        <input id = "size" placeholder="n">
+        <button onclick = "play()" id = "ok">ok</button>
+    </div>
+    <div id = "parent">
+    </div>
+    <div id = "primes_area">
+    </div>
+            </div>
+            <div id = "pseudos">
+                Sieve(N):
+                <p>for i from 1 to n </p>
+            <p>if i is prime</p>
+            <p>for j = i + i to j = N with step i </p>
+            <p>mark j as not prime</p>
+            </div>
+            
+        </div>
+        <div>
+
+        </div>
+    </div>
+    
+    <script src = "sieve.js"></script>
+</body>
+</html>

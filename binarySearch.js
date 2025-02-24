@@ -1,4 +1,4 @@
-var parent = document.getElementById('parent');
+var parent = document.getElementById('parent-res');
 var arr = [];
 function drewGrid(n)
 {
@@ -49,8 +49,8 @@ async function binSearch(v, n)
 }
 function play()
 {
-    let N = parseInt(document.getElementById('size').value);
-    let form = document.getElementById('form');
+    let N = parseInt(document.getElementById('required-size').value);
+    let form = document.getElementById('ask-for-n');
     form.style.display = 'none';
     for (let i = 0; i < N; i ++)
     {

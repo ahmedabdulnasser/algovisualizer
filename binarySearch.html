@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>binary search</title>
     <style>
+        body{
+            background-color: black;
+        }
         #parent-parent{
             display: grid;
             width:100%;
@@ -14,27 +17,27 @@
         #parent-parent > div{
             border: 1px solid red;
         }
-        #parent{
+        #parent-res{
             display: grid;
             width:100%;
             grid-template-columns: repeat(auto-fill, minmax(40px, auto));
             border:1px solid red;
         }
-        #parent div{
+        #parent-res div{
             border:1px solid black;
             background-color: green;
         }
         #pseudo{
             width: 20%;
         }
-        #parent .eliminated{
+        #parent-res .eliminated{
             background-color: grey;
             opacity: .2;
         }
-        #parent .select{
+        #parent-res .select{
             background-color:blue;
         }
-        #parent .found{
+        #parent-res .found{
             background-color: black !important;
         }
         #pseudo-code{
@@ -43,16 +46,16 @@
     </style>
 </head>
 <body>
-    <div id = 'form'>
+    <div id = 'ask-for-n'>
         <label>enter size of the array</label>
-        <input id = "size">
+        <input id = "required-size">
         <button onclick="play()">ok</button>
     </div>
     <div id = "res">
         
     </div>
     <div id = "parent-parent">
-    <div id = "parent">
+    <div id = "parent-res">
     </div>
     <div id = "pseudo">
         <h2>Pseudo Code</h2>

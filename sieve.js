@@ -2,6 +2,16 @@ var parent = document.getElementById('parent');
 var divs = [];
 var cells;
 var primes;
+var m = 400;
+var pause = 0;
+function resume()
+{
+    pause = 0;
+}
+function stop()
+{
+    pause = 1;
+}
 function play()
 {
     let N = parseInt(document.getElementById('size').value) ;
@@ -11,6 +21,16 @@ function play()
     cells = document.getElementsByClassName('cell');
     primes = document.getElementById('primes_area');
     sieve(N);
+}
+function speedup()
+{
+    m -= 20;
+    if (m < 1)m = 1;
+}
+function speeddown()
+{
+    m += 20;
+    if (m > 1000)m = 1000;
 }
 function drewGrid(n)
 {
@@ -41,6 +61,10 @@ function drewGrid(n)
     }
 }
 async function delay(ms) {
+    while (pause)
+    {
+        await new Promise(resolve =>setTimeout(resolve, ms));
+    }
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function sieve(n)
@@ -63,11 +87,11 @@ async function sieve(n)
                 cells[j - 1].classList.remove('prime');
                 cells[j - 1].classList.add('not_prime');
                 cells[j - 1].classList.add('select');
-                await delay(0);
+                await delay(m);
                 cells[j - 1].classList.remove('select');
             }
         }
-        else await delay(0);
+        else await delay(m);
         
     }
 }
