@@ -37,10 +37,26 @@ class Main {
         this.isMouseDown = false;
         this.isSKeyPressed = false;
         this.isEKeyPressed = false;
+        this.allowDiagonal = false;
+
         this.grid.addEventListener('mouseup', () => this.isMouseDown = false);
         this.grid.addEventListener('mouseleave', () => this.isMouseDown = false);
         document.addEventListener('keydown', (e) => this.handleKeyDown(e));
         document.addEventListener('keyup', (e) => this.handleKeyUp(e));
+
+        this.diagonalCheckbox = document.getElementById('diagonal');
+        this.resetButton = document.getElementById('reset');
+        this.openNodesCount = document.getElementById('open_nodes_count');
+        this.closedNodesCount = document.getElementById('closed_nodes_count');
+        this.pathNodesCount = document.getElementById('path_nodes_count');
+        this.startButton = document.getElementById('run');
+
+        this.diagonalCheckbox.addEventListener('change', () => {
+            this.allowDiagonal = this.diagonalCheckbox.checked;
+        });
+        this.resetButton.addEventListener('click', () => this.resetGrid());
+        this.startButton.addEventListener('click', () => this.findPath());
+    
         // window.addEventListener('resize', 
         //     () => this.paintComponent()
         // );
@@ -49,42 +65,47 @@ class Main {
     paintComponent() {
         const gridParent = this.grid.parentNode;
 
-        const numCols = Math.floor(gridParent.offsetWidth / this.size) - 1;
-        const numRows = Math.floor(gridParent.offsetHeight / this.size) - 1;
+        this.numCols = Math.floor(gridParent.offsetWidth / this.size) - 1;
+        this.numRows = Math.floor(gridParent.offsetHeight / this.size) - 1;
 
-        this.grid.style.setProperty('--num-cols', numCols);
-        this.grid.style.setProperty('--num-rows', numRows);
+        this.grid.style.setProperty('--num-cols', this.numCols);
+        this.grid.style.setProperty('--num-rows', this.numRows);
         this.grid.style.setProperty('--size', this.size + 'px');
 
         this.squareList = [];
         this.grid.innerHTML = '';
 
-        for (let i = 0; i < numCols; i++) {
-            for (let j = 0; j < numRows; j++) {
+        for (let i = 0; i < this.numCols; i++) {
+            for (let j = 0; j < this.numRows; j++) {
                 const square = document.createElement('div');
                 square.style.width = `${this.size}px`;
                 square.style.height = `${this.size}px`;
-                square.dataset.clicked = "false";
                 square.dataset.Hcost = 0;
                 square.dataset.Gcost = 0;
                 square.dataset.Fcost = 0;
                 square.dataset.type = "none";
+                square.dataset.x = i;
+                square.dataset.y = j;
                 square.classList.add('square');
                 this.grid.appendChild(square);
 
                 square.addEventListener('mousedown', (e) => {
                     this.isMouseDown = true;
                     if (e.button === 0) {
-                        if (this.isSKeyPressed) {
+                        if (this.isSKeyPressed && !this.start) {
                             this.toggleStartNode(square);
-                        } else if (this.isEKeyPressed) {
+                        } else if (this.isEKeyPressed && !this.end) {
                             this.toggleEndNode(square);
-                        } else if(square !== this.start && square !== this.end) {
+                        } else if(square !== this.start && square !== this.end && !this.isSKeyPressed && !this.isEKeyPressed) {
                             this.toggleSquareColor(square);
                         }
                     } else if (e.button === 2) {
-                        if (square !== this.start || square !== this.end) {
+                        if (square !== this.start && square !== this.end) {
                             this.toggleSquareColor(square, "white");
+                        } else if (square === this.start && this.start && this.isSKeyPressed) {
+                            this.toggleStartNode(square);
+                        } else if (square === this.end && this.end && this.isEKeyPressed) {
+                            this.toggleEndNode(square);
                         }
                     }
                 });
@@ -92,16 +113,20 @@ class Main {
                 square.addEventListener('mouseover', (e) => {
                     if (this.isMouseDown) {
                         if (e.buttons === 1) {
-                            if (this.isSKeyPressed) {
+                            if (this.isSKeyPressed && !this.start) {
                                 this.toggleStartNode(square);
-                            } else if (this.isEKeyPressed) {
+                            } else if (this.isEKeyPressed && !this.end) {
                                 this.toggleEndNode(square);
-                            } else if (square !== this.start && square !== this.end) {
+                            } else if (square !== this.start && square !== this.end && !this.isSKeyPressed && !this.isEKeyPressed) {
                                 this.toggleSquareColor(square);
                             }
                         } else if (e.buttons === 2) {
-                            if (square !== this.start || square !== this.end) {
+                            if (square !== this.start && square !== this.end) {
                                 this.toggleSquareColor(square, "white");
+                            } else if (square === this.start && this.start && this.isSKeyPressed) {
+                                this.toggleStartNode(square);
+                            } else if (square === this.end && this.end && this.isEKeyPressed) {
+                                this.toggleEndNode(square);
                             }
                         }
                     }
@@ -114,7 +139,7 @@ class Main {
 
     toggleSquareColor(square, color = "black") {
         square.style.backgroundColor = color;
-        square.dataset.clicked = square.dataset.clicked === "true" ? "false" : "true";
+        square.dataset.type = square.dataset.type === "wall" ? "none" : "wall";
     }
 
     drawCosts(square) {
@@ -180,6 +205,26 @@ class Main {
             square.style.backgroundColor = "red";
             this.end = square;
         }
+    }
+
+    resetGrid() {
+        this.start = null;
+        this.end = null;
+        this.squareList.forEach(square => {
+            square.dataset.type = "none";
+            square.style.backgroundColor = "white";
+        });
+        this.updateNodeCounts(0, 0, 0);
+    }
+
+    updateNodeCounts(openNodes, closedNodes, pathNodes) {
+        this.openNodesCount.textContent = openNodes;
+        this.closedNodesCount.textContent = closedNodes;
+        this.pathNodesCount.textContent = pathNodes;
+    }
+
+    findPath() {
+        
     }
 }
 
