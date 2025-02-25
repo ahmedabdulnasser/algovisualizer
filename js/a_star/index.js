@@ -256,12 +256,31 @@ class Main {
         const path = astar.findPath();
 
         if (path) {
+            for (const node of astar.closedSet) {
+                const [x, y] = node.split(",").map(Number);
+                if (path.some(n => n.x === x && n.y === y)) {
+                    continue;
+                }
+                const square = this.squareList[y * this.numCols + x];
+                if (square !== this.start && square !== this.end) {
+                    square.style.backgroundColor = "red";
+                }
+            }
+
+            for (const node of astar.openSet) {
+                const square = this.squareList[node.y * this.numCols + node.x];
+                if (square !== this.start && square !== this.end) {
+                    square.style.backgroundColor = "lime";
+                }
+            }
+
             for (const node of path) {
                 const square = this.squareList[node.y * this.numCols + node.x];
                 if (square !== this.start && square !== this.end) {
                     square.style.backgroundColor = "yellow";
                 }
             }
+
             this.updateNodeCounts(astar.openSet.length, astar.closedSet.size, path.length);
         } else {
             alert("No path found!");
