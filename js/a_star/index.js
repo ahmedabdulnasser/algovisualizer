@@ -245,46 +245,51 @@ class Main {
                 gridArray[y][x] = "wall";
             }
         }
-
+    
         const astar = new Astar(
             gridArray,
             { x: parseInt(this.start.dataset.x), y: parseInt(this.start.dataset.y) },
             { x: parseInt(this.end.dataset.x), y: parseInt(this.end.dataset.y) },
             this.allowDiagonal
         );
-
-        const path = astar.findPath();
-
-        if (path) {
-            for (const node of astar.closedSet) {
-                const [x, y] = node.split(",").map(Number);
-                if (path.some(n => n.x === x && n.y === y)) {
-                    continue;
+    
+        const visualizeStep = () => {
+            const result = astar.step();
+    
+            if (result === "running") {
+                for (const node of astar.openSet) {
+                    const square = this.squareList[node.y * this.numCols + node.x];
+                    if (square !== this.start && square !== this.end) {
+                        square.style.backgroundColor = "lime";
+                    }
                 }
-                const square = this.squareList[y * this.numCols + x];
-                if (square !== this.start && square !== this.end) {
-                    square.style.backgroundColor = "red";
+    
+                for (const node of astar.closedSet) {
+                    const [x, y] = node.split(",").map(Number);
+                    const square = this.squareList[y * this.numCols + x];
+                    if (square !== this.start && square !== this.end) {
+                        square.style.backgroundColor = "red";
+                    }
                 }
+                this.updateNodeCounts(astar.openSet?.length, astar.closedSet?.size);
+
+                setTimeout(visualizeStep, 50); 
+            } else if (result === "pathFound") {
+                const path = astar.reconstructPath();
+                for (const node of path) {
+                    const square = this.squareList[node.y * this.numCols + node.x];
+                    if (square !== this.start && square !== this.end) {
+                        square.style.backgroundColor = "yellow";
+                    }
+                }
+    
+                this.updateNodeCounts(astar.openSet.length, astar.closedSet.size, path.length - 2);
+            } else {
+                alert("No path found!");
             }
-
-            for (const node of astar.openSet) {
-                const square = this.squareList[node.y * this.numCols + node.x];
-                if (square !== this.start && square !== this.end) {
-                    square.style.backgroundColor = "lime";
-                }
-            }
-
-            for (const node of path) {
-                const square = this.squareList[node.y * this.numCols + node.x];
-                if (square !== this.start && square !== this.end) {
-                    square.style.backgroundColor = "yellow";
-                }
-            }
-
-            this.updateNodeCounts(astar.openSet.length, astar.closedSet.size, path.length);
-        } else {
-            alert("No path found!");
-        }
+        };
+    
+        visualizeStep();
     }
 }
 
@@ -295,7 +300,12 @@ class Astar {
         this.end = end;
         this.allowDiagonal = allowDiagonal;
         this.openSet = [this.start];
-        this.closedSet = new Set();
+        this.closedSet = new Set(); 
+        this.cameFrom = new Map();
+        this.gScore = new Map(); 
+        this.fScore = new Map();
+        this.gScore.set(`${this.start.x},${this.start.y}`, 0);
+        this.fScore.set(`${this.start.x},${this.start.y}`, this.heuristic(this.start));
     }
 
     heuristic(node) {
@@ -344,60 +354,52 @@ class Astar {
         return neighbors;
     }
 
-    findPath() {
-        const cameFrom = new Map();
-        const gScore = new Map();
-        const fScore = new Map();
-
-        gScore.set(`${this.start.x},${this.start.y}`, 0);
-        fScore.set(`${this.start.x},${this.start.y}`, this.heuristic(this.start));
-
-        while (this.openSet.length > 0) {
-            let current = this.openSet[0];
-
-            for (let i = 1; i < this.openSet.length; i++) {
-                const node = this.openSet[i];
-                if (fScore.get(`${node.x},${node.y}`) < fScore.get(`${current.x},${current.y}`)) {
-                    current = node;
-                }
-            }
-
-            if (current.x === this.end.x && current.y === this.end.y) {
-                return this.reconstructPath(cameFrom, current);
-            }
-
-            this.openSet.splice(this.openSet.indexOf(current), 1);
-            this.closedSet.add(`${current.x},${current.y}`);
-
-            const neighbors = this.getNeighbors(current);
-            for (const neighbor of neighbors) {
-                const neighborKey = `${neighbor.x},${neighbor.y}`;
-
-                if (this.closedSet.has(neighborKey)) continue;
-
-                const gCost_to_neighbor = gScore.get(`${current.x},${current.y}`) + 1;
-
-                if (!this.openSet.some(n => n.x === neighbor.x && n.y === neighbor.y)) {
-                    this.openSet.push(neighbor);
-                } else if (gCost_to_neighbor >= (gScore.get(neighborKey) || Infinity)) {
-                    continue;
-                }
-
-                cameFrom.set(neighborKey, current);
-                gScore.set(neighborKey, gCost_to_neighbor);
-                fScore.set(neighborKey, gCost_to_neighbor + this.heuristic(neighbor));
-            }
+    step() {
+        if (this.openSet.length === 0) {
+            return "noPath";
         }
 
-        return null;
+        let current = this.openSet.reduce((a, b) =>
+            this.fScore.get(`${a.x},${a.y}`) < this.fScore.get(`${b.x},${b.y}`) ? a : b
+        );
+
+        if (current.x === this.end.x && current.y === this.end.y) {
+            return "pathFound";
+        }
+
+        this.openSet.splice(this.openSet.indexOf(current), 1);
+        this.closedSet.add(`${current.x},${current.y}`);
+
+        const neighbors = this.getNeighbors(current);
+        for (const neighbor of neighbors) {
+            const neighborKey = `${neighbor.x},${neighbor.y}`;
+
+            if (this.closedSet.has(neighborKey)) continue; 
+
+            const gCost_to_neighbor = this.gScore.get(`${current.x},${current.y}`) + 1;
+
+            if (!this.openSet.some(n => n.x === neighbor.x && n.y === neighbor.y)) {
+                this.openSet.push(neighbor); 
+            } else if (gCost_to_neighbor >= (this.gScore.get(neighborKey) || Infinity)) {
+                continue; 
+            }
+
+            this.cameFrom.set(neighborKey, current);
+            this.gScore.set(neighborKey, gCost_to_neighbor);
+            this.fScore.set(neighborKey, gCost_to_neighbor + this.heuristic(neighbor));
+        }
+
+        return "running";
     }
 
-    reconstructPath(cameFrom, current) {
-        const path = [current];
-        while (cameFrom.has(`${current.x},${current.y}`)) {
-            current = cameFrom.get(`${current.x},${current.y}`);
+    reconstructPath() {
+        const path = [];
+        let current = this.end;
+        while (this.cameFrom.has(`${current.x},${current.y}`)) {
             path.unshift(current);
+            current = this.cameFrom.get(`${current.x},${current.y}`);
         }
+        path.unshift(this.start);
         return path;
     }
 }
