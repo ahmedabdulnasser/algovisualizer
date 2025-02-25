@@ -283,7 +283,7 @@ class Main {
                     }
                 }
     
-                this.updateNodeCounts(astar.openSet.length, astar.closedSet.size, path.length - 2);
+                this.updateNodeCounts(astar.openSet.length, (astar.closedSet.size - (path.length - 2)) - 1, path.length - 2);
             } else {
                 alert("No path found!");
             }
