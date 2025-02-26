@@ -38,6 +38,7 @@ class Main {
         this.isSKeyPressed = false;
         this.isEKeyPressed = false;
         this.allowDiagonal = false;
+        this.astar = null;
 
         this.grid.addEventListener('mouseup', () => this.isMouseDown = false);
         this.grid.addEventListener('mouseleave', () => this.isMouseDown = false);
@@ -143,20 +144,34 @@ class Main {
     }
 
     drawCosts(square) {
-        const Hcost = document.createElement('p');
-        Hcost.classList.add('hcost');
-        Hcost.textContent = square.dataset.Hcost;
-        square.appendChild(Hcost);
-
-        const Gcost = document.createElement('p');
-        Gcost.classList.add('gcost');
-        Gcost.textContent = square.dataset.Gcost;
-        square.appendChild(Gcost);
-
-        const Fcost = document.createElement('p');
-        Fcost.classList.add('fcost');
-        Fcost.textContent = square.dataset.Fcost;
-        square.appendChild(Fcost);
+        if (square === this.start || square === this.end) {
+            return;
+        }
+    
+        square.innerHTML = "";
+    
+        const x = parseInt(square.dataset.x);
+        const y = parseInt(square.dataset.y);
+    
+        const gCost = this.astar.gScore.get(`${x},${y}`) || 0;
+        const hCost = this.astar.heuristic({ x, y });
+        const fCost = gCost + hCost;
+    
+        const gCostElement = document.createElement('p');
+        gCostElement.classList.add('gcost');
+        gCostElement.textContent = `G: ${gCost}`;
+    
+        const hCostElement = document.createElement('p');
+        hCostElement.classList.add('hcost');
+        hCostElement.textContent = `H: ${hCost}`;
+    
+        const fCostElement = document.createElement('p');
+        fCostElement.classList.add('fcost');
+        fCostElement.textContent = `F: ${fCost}`;
+    
+        square.appendChild(gCostElement);
+        square.appendChild(hCostElement);
+        square.appendChild(fCostElement);
     }
 
     handleKeyDown(e) {
@@ -214,6 +229,11 @@ class Main {
             square.dataset.type = "none";
             square.style.backgroundColor = "white";
         });
+        
+        this.squareList.forEach(square => {
+            square.innerHTML = "";
+        });
+        
         this.updateNodeCounts(0, 0, 0);
     }
 
@@ -246,7 +266,7 @@ class Main {
             }
         }
     
-        const astar = new Astar(
+        this.astar = new Astar(
             gridArray,
             { x: parseInt(this.start.dataset.x), y: parseInt(this.start.dataset.y) },
             { x: parseInt(this.end.dataset.x), y: parseInt(this.end.dataset.y) },
@@ -254,28 +274,29 @@ class Main {
         );
     
         const visualizeStep = () => {
-            const result = astar.step();
+            const result = this.astar.step(); 
     
             if (result === "running") {
-                for (const node of astar.openSet) {
+                for (const node of this.astar.openSet) {
                     const square = this.squareList[node.y * this.numCols + node.x];
                     if (square !== this.start && square !== this.end) {
                         square.style.backgroundColor = "lime";
                     }
                 }
     
-                for (const node of astar.closedSet) {
-                    const [x, y] = node.split(",").map(Number);
+                for (const node of this.astar.closedSet) {
+                    const [x, y] = node.split(",").map(Number); 
                     const square = this.squareList[y * this.numCols + x];
                     if (square !== this.start && square !== this.end) {
-                        square.style.backgroundColor = "red";
+                        square.style.backgroundColor = "pink";
                     }
                 }
-                this.updateNodeCounts(astar.openSet?.length, astar.closedSet?.size);
-
+    
+                this.updateNodeCounts(this.astar.openSet?.length, this.astar.closedSet?.size);
+    
                 setTimeout(visualizeStep, 50); 
             } else if (result === "pathFound") {
-                const path = astar.reconstructPath();
+                const path = this.astar.reconstructPath();
                 for (const node of path) {
                     const square = this.squareList[node.y * this.numCols + node.x];
                     if (square !== this.start && square !== this.end) {
@@ -283,7 +304,18 @@ class Main {
                     }
                 }
     
-                this.updateNodeCounts(astar.openSet.length, (astar.closedSet.size - (path.length - 2)) - 1, path.length - 2);
+                this.updateNodeCounts(this.astar.openSet.length, (this.astar.closedSet.size - (path.length - 2)) - 1, path.length - 2);
+
+                for (const node of this.astar.openSet) {
+                    const square = this.squareList[node.y * this.numCols + node.x];
+                    this.drawCosts(square);
+                }
+
+                for (const node of this.astar.closedSet) {
+                    const [x, y] = node.split(",").map(Number);
+                    const square = this.squareList[y * this.numCols + x];
+                    this.drawCosts(square);
+                }
             } else {
                 alert("No path found!");
             }
