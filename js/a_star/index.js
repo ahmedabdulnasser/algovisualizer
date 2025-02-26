@@ -51,9 +51,13 @@ class Main {
         this.closedNodesCount = document.getElementById('closed_nodes_count');
         this.pathNodesCount = document.getElementById('path_nodes_count');
         this.startButton = document.getElementById('run');
+        this.showSteps = document.getElementById('show_steps');
 
         this.diagonalCheckbox.addEventListener('change', () => {
             this.allowDiagonal = this.diagonalCheckbox.checked;
+        });
+        this.showSteps.addEventListener('change', () => {
+            this.showSteps = this.showSteps.checked;
         });
         this.resetButton.addEventListener('click', () => this.resetGrid());
         this.startButton.addEventListener('click', () => this.findPath());
@@ -294,7 +298,7 @@ class Main {
     
                 this.updateNodeCounts(this.astar.openSet?.length, this.astar.closedSet?.size);
     
-                setTimeout(visualizeStep, 50); 
+                setTimeout(visualizeStep, this.showSteps == true ? 100 : 0);
             } else if (result === "pathFound") {
                 const path = this.astar.reconstructPath();
                 for (const node of path) {
