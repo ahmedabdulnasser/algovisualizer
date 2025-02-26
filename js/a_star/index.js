@@ -201,7 +201,7 @@ class Main {
                 this.start.style.backgroundColor = "white";
             }
             square.dataset.type = "start";
-            square.style.backgroundColor = "green";
+            square.style.backgroundColor = "#0000ff";
             this.start = square;
         }
     }
@@ -280,7 +280,7 @@ class Main {
                 for (const node of this.astar.openSet) {
                     const square = this.squareList[node.y * this.numCols + node.x];
                     if (square !== this.start && square !== this.end) {
-                        square.style.backgroundColor = "lime";
+                        square.style.backgroundColor = "#84ff8a";
                     }
                 }
     
@@ -288,7 +288,7 @@ class Main {
                     const [x, y] = node.split(",").map(Number); 
                     const square = this.squareList[y * this.numCols + x];
                     if (square !== this.start && square !== this.end) {
-                        square.style.backgroundColor = "pink";
+                        square.style.backgroundColor = "#fb5959";
                     }
                 }
     
@@ -300,7 +300,7 @@ class Main {
                 for (const node of path) {
                     const square = this.squareList[node.y * this.numCols + node.x];
                     if (square !== this.start && square !== this.end) {
-                        square.style.backgroundColor = "yellow";
+                        square.style.backgroundColor = "#20e9ff";
                     }
                 }
     
