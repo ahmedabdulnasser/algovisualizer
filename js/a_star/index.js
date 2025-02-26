@@ -157,9 +157,13 @@ class Main {
         const x = parseInt(square.dataset.x);
         const y = parseInt(square.dataset.y);
     
-        const gCost = this.astar.gScore.get(`${x},${y}`) || 0;
-        const hCost = this.astar.heuristic({ x, y });
-        const fCost = gCost + hCost;
+        let gCost = this.astar.gScore.get(`${x},${y}`) || 0;
+        let hCost = this.astar.heuristic({ x, y });
+        let fCost = gCost + hCost;
+
+        gCost = Math.round(gCost * 10) / 10;
+        hCost = Math.round(hCost * 10) / 10;
+        fCost = Math.round(fCost * 10) / 10;
     
         const gCostElement = document.createElement('p');
         gCostElement.classList.add('gcost');
@@ -241,6 +245,20 @@ class Main {
         this.updateNodeCounts(0, 0, 0);
     }
 
+    softResetGrid() {
+        this.squareList.forEach(square => {
+            if(square.dataset.type == "none") {
+                square.style.backgroundColor = "white";
+            }
+        });
+        
+        this.squareList.forEach(square => {
+            square.innerHTML = "";
+        });
+        
+        this.updateNodeCounts(0, 0, 0);
+    }
+
     updateNodeCounts(openNodes, closedNodes, pathNodes) {
         this.openNodesCount.textContent = openNodes;
         this.closedNodesCount.textContent = closedNodes;
@@ -252,6 +270,8 @@ class Main {
             alert("Please set both a start and an end node.");
             return;
         }
+
+        this.softResetGrid();
 
         const gridArray = [];
         for (let y = 0; y < this.numRows; y++) {
