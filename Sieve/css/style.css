@@ -67,3 +67,17 @@ body{
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     overflow:hidden;
   }
+  #recommended_problems {
+    display: grid;
+    grid-template-rows: 7fr 2fr 2fr ;
+    gap:20px;
+  }
+  #recommended_problems a{
+    background-color: #181b20;
+  }
+  
+  #recommended_problems a:hover{
+    background-color: white;
+    color:black;
+  }
+  
