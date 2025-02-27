@@ -3,11 +3,132 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/reset.css" />
+    <title>
+      Algorhythm - Visualize algorithms & data structures step-by-step
+    </title>
+    <link rel="shortcut icon" href="/assets/img/rubik.png" type="image/png" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
   </head>
   <body>
-    <div class="previewArr"></div>
-    <script type="module" src="./js/main.js"></script>
+    <header>
+      <nav id="navbar">
+        <a id="navbar__logo" href="/">
+          <img src="/assets/img/rubik.png" alt="Logo Image" /> Algorhythm
+        </a>
+        <ul id="navbar__links">
+          <li><a href="" class="active">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Team</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+        <a
+          href="https://github.com/ahmedabdulnasser/algovisualizer"
+          target="_blank"
+        >
+          <img
+            src="/assets/img/github.png"
+            alt="Source code on Github"
+            id="github-link"
+          />
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section id="hero">
+        <h2 id="title">ALGO<span id="name-part-2">RHYTHM</span></h2>
+        <p>Visualize algorithms & data structures step-by-step</p>
+        <span id="powered-by">
+          <img id="hero-iti" src="/assets/img/iti.svg" alt="ITI Logo" />
+          <span>
+            <h2>Powered by Open Source Department</h2>
+            <span>Information Technology Institute - Alexandria</span>
+          </span>
+        </span>
+      </section>
+      <section id="categories">
+        <div class="algo-card" onclick="location.href='/sorting/bubble'">
+          <img src="/assets/img/thumbnails/sort.png" alt="Bubble Sort" />
+          <h2>Bubble Sort</h2>
+          <p>
+            Repeatedly compares and swaps adjacent elements if they are in the
+            wrong order, pushing larger values to the end with each pass.
+          </p>
+          <button class="algo-btn">Visualize</button>
+        </div>
+        <div class="algo-card" onclick="location.href='/sorting/selection'">
+          <img src="/assets/img/thumbnails/sort2.png" alt="Bubble Sort" />
+          <h2>Selection Sort</h2>
+          <p>
+            Finds the smallest element in the unsorted part and swaps it with
+            the first unsorted element, shrinking the unsorted portion with each
+            iteration.
+          </p>
+        </div>
+        <div class="algo-card">
+          <img src="/assets/img/thumbnails/pathfinding.png" alt="Bubble Sort" />
+          <h2>A*</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
+            debitis sint et Lorem ipsum dolor sit.
+          </p>
+        </div>
+        <div class="algo-card">
+          <img src="/assets/img/thumbnails/search.png" alt="Bubble Sort" />
+          <h2>Linear Search</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
+            debitis sint et Lorem ipsum dolor sit.
+          </p>
+        </div>
+        <div class="algo-card">
+          <img
+            src="/assets/img/thumbnails/binary-search.png"
+            alt="Bubble Sort"
+          />
+          <h2>Binary Search</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
+            debitis sint et Lorem ipsum dolor sit.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <section class="footer__container">
+        <ul class="footer__links">
+          <h2>Links</h2>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+
+        <ul class="footer__services">
+          <h2>Services</h2>
+
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+
+        <ul class="footer__links">
+          <h2>Follow</h2>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+      </section>
+      <span class="copyright"
+        ><p>
+          Copyrights reserved &copy; 2025 -
+          <span class="copyright-comp">ITI Alexandria</span>
+        </p></span
+      >
+    </footer>
+    <script src="/js/nav.js"></script>
   </body>
 </html>

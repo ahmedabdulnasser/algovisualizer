@@ -1,0 +1,91 @@
+* {
+  /* box-sizing: border-box; */
+}
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+nav {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  margin-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding: 15px;
+  width: 93%;
+  background-color: var(--gray-secondary);
+  height: 32px;
+  position: fixed;
+  transition: all 0.25s ease-in-out;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+.scrolling {
+  margin: 0;
+  width: 100%;
+  height: 64px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 100%;
+}
+#navbar__logo {
+  font-family: "Geo", serif;
+  text-transform: uppercase;
+  font-size: 3rem;
+  display: flex;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+}
+#navbar__logo img {
+  width: 50px;
+  height: 50px;
+}
+nav ul#navbar__links {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 32px;
+}
+nav ul#navbar__links a {
+  color: rgba(255, 255, 255, 0.879);
+  font-family: "Geo", serif;
+  text-decoration: none;
+  opacity: 60%;
+  font-size: 1.5rem;
+  transition: all 0.3s ease-in;
+}
+nav ul#navbar__links a:hover {
+  opacity: 100%;
+}
+nav ul#navbar__links a.active {
+  opacity: 100%;
+}
+img#github-link {
+  width: 45px;
+  height: 45px;
+  opacity: 60%;
+  transition: all 0.3s ease-in;
+}
+img#github-link:hover {
+  opacity: 100%;
+}
+
+.hidden {
+  transform: translateY(-120%);
+}
+.geo-regular {
+  font-family: "Geo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.geo-regular-italic {
+  font-family: "Geo", serif;
+  font-weight: 400;
+  font-style: italic;
+}
