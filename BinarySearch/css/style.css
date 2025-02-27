@@ -3,7 +3,7 @@
     display: grid;
     width:100%;
     height: 100%;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 #parent-parent > div{
     border: 1px solid red;
@@ -17,13 +17,13 @@
 #parent-res div{
     border:1px solid black;
     background-color: green;
+    margin-bottom: 10px;
 }
 #pseudo{
     width: 20%;
 }
 #parent-res .eliminated{
-    background-color: grey;
-    opacity: .2;
+    background-color: white;
 }
 #parent-res .select{
     background-color:blue;
