@@ -42,21 +42,6 @@ function drewGrid(n)
         if (i > 1)
         div.classList.add('prime');
         div.innerHTML = i;
-        div.onmouseover = function()
-        {
-            this.innerHTML = '';
-            for (j of divs[i])
-            {
-
-                let li = document.createElement('li');
-                li.innerHTML = j;
-                this.appendChild(li);
-            }
-        }
-        div.onmouseout = function()
-        {
-            this.innerHTML = i;
-        }
         parent.appendChild(div);
     }
 }

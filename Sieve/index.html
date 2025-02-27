@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "css/style.css">
+</head>
+<body>
+    <div class="parent-grid">
+        <div id = "buttons">
+            <button onclick="resume()">
+                <img src = "./images/resume.png">
+            </button>
+            <button onclick="stop()">
+                <img src = "./images/stop.png">
+            </button>
+            <button onclick="speedup()">
+                <img src = "./images/speedup.png">
+            </button>
+            <button onclick="speeddown()">
+                <img src = "./images/speeddown.png">
+            </button>
+        </div>
+        <div id = "row2-div">
+            <div id = "visuals">
+                
+    <div id = "form">
+        <label>enter N </label>
+        <input id = "size" placeholder="n">
+        <button onclick = "play()" id = "ok">ok</button>
+    </div>
+    <div id = "parent">
+    </div>
+    <div id = "primes_area">
+    </div>
+            </div>
+            <div id = "pseudos">
+                Sieve(N):
+                <p>for i from 1 to n </p>
+            <p>if i is prime</p>
+            <p> for j = i + i to j = N with step i </p>
+            <p>  mark j as not prime</p>
+            </div>
+            
+        </div>
+        <div>
+
+        </div>
+    </div>
+    
+    <script src = "sieve.js"></script>
+</body>
+</html>

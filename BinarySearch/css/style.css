@@ -1,0 +1,33 @@
+
+#parent-parent{
+    display: grid;
+    width:100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+}
+#parent-parent > div{
+    border: 1px solid red;
+}
+#parent-res{
+    display: grid;
+    width:100%;
+    grid-template-columns: repeat(auto-fill, minmax(40px, auto));
+    border:1px solid red;
+}
+#parent-res div{
+    border:1px solid black;
+    background-color: green;
+}
+#pseudo{
+    width: 20%;
+}
+#parent-res .eliminated{
+    background-color: grey;
+    opacity: .2;
+}
+#parent-res .select{
+    background-color:blue;
+}
+#parent-res .found{
+    background-color: black !important;
+}

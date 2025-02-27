@@ -1,0 +1,53 @@
+
+body{
+    background-color: grey;
+}
+.parent-grid{
+    height:100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 10fr 1fr;
+}
+
+.parent-grid > div{
+    border: 1px solid white;
+}
+#row2-div{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 3fr 2fr;
+}
+#row2-div > div{
+}
+#buttons{
+    display: grid;
+    height: 100%;
+    width:50%;
+    grid-template-columns: repeat(4, 1fr);
+}
+#buttons img{
+    max-width: 10%;
+}
+#parent, #primes_area{
+    display: grid;
+    width:80%;
+    grid-template-columns: repeat(auto-fill, minmax(40px, auto));
+}
+#parent div, #primes_area div{
+    border:1px solid black;
+}
+#parent .not_prime{
+    background-color: red;
+
+}
+#parent .prime{
+    background-color: green;
+}
+.select{
+    background-color:blue !important;
+    opacity: .2;
+}
+.select-outer{
+    border: 1px solid yellow !important;
+}
