@@ -1,6 +1,7 @@
 
 body{
-    background-color: #DDEB9D;
+    background-color: black;
+    color:white;
 }
 .parent-grid{
     height:100vh;
@@ -16,7 +17,7 @@ body{
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-rows: 20px 7fr 7fr;
+    grid-template-rows:  20px 7fr 7fr;
 }
 #buttons{
     display: grid;
@@ -33,22 +34,22 @@ body{
     grid-template-columns: repeat(auto-fill, minmax(40px, auto));
 }
 #parent div, #primes_area div{
-    border:1px solid black;
+    border:1px solid white;
     margin-bottom: 10px;
 }
 #parent .not_prime{
-    background-color: #A0C878;
+    background-color: #663399;
 
 }
 #parent .prime{
-    background-color: #27667B;
+    background-color: #23272f;
 }
 .select{
-    background-color:#143D60 !important;
-    opacity: .2;
+    background-color:white !important;
+
 }
 .select-outer{
-    border: 1px solid yellow !important;
+    border: 2px solid yellow !important;
 }
 #third_column{
     display: grid;
@@ -62,7 +63,7 @@ body{
     align-items: center;
     text-align: center;
 
-    background-color: #A0C878;
+    background-color: #181b20;
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     overflow:hidden;
   }

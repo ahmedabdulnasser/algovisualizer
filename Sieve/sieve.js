@@ -60,6 +60,7 @@ async function delay(ms) {
 }
 async function sieve(n)
 {
+    cells[0].classList.add('not_prime');
     for (let i = 2; i <= n; i ++)
     {
         cells[i - 1].classList.add('select-outer');
