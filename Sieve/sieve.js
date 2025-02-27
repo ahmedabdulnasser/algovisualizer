@@ -4,6 +4,7 @@ var cells;
 var primes;
 var m = 400;
 var pause = 0;
+var logs = document.getElementById('logs');
 function resume()
 {
     pause = 0;
@@ -15,6 +16,7 @@ function stop()
 function play()
 {
     let N = parseInt(document.getElementById('size').value) ;
+    if (isFinite(N) == false || !N)return ;
     var form = document.getElementById('form');
     form.style.display='none';
     drewGrid(N);
@@ -31,6 +33,10 @@ function speeddown()
 {
     m += 20;
     if (m > 1000)m = 1000;
+}
+function max()
+{
+    m = 0;
 }
 function drewGrid(n)
 {
@@ -60,6 +66,11 @@ async function sieve(n)
         cells[i - 2].classList.remove('select-outer');
         if (cells[i - 1].classList.contains('prime'))
         {
+            logs.innerHTML += `${i} is prime !`;
+            logs.innerHTML += "<br>";
+            logs.innerHTML += `mark multiples of ${i} as not primes .....`;
+            logs.innerHTML += "<br>";
+            
             let d = document.createElement('div');
             d.innerHTML=i;
             divs[i] = [i];
@@ -79,5 +90,10 @@ async function sieve(n)
         else await delay(m);
         
     }
+}
+function closeLogs(){
+logs.style.display = "none";
+var cbtn = document.getElementById('cbtn');
+cbtn.style.display = "none";
 }
 

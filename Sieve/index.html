@@ -8,6 +8,8 @@
 </head>
 <body>
     <div class="parent-grid">
+        <div id = "recommended_problems">problems to recommend</div>
+        <div id = "col2">
         <div id = "buttons">
             <button onclick="resume()">
                 <img src = "./images/resume.png">
@@ -21,33 +23,32 @@
             <button onclick="speeddown()">
                 <img src = "./images/speeddown.png">
             </button>
+            <button onclick="max()">
+                <img src = "./images/max.jpg">
+            </button>
         </div>
         <div id = "row2-div">
-            <div id = "visuals">
+                
+    <div id = "parent">
+    </div>
+    <div id = "primes_area">
+    </div>
+            </div>
+            </div>
+            <div id = "third_column">
                 
     <div id = "form">
         <label>enter N </label>
         <input id = "size" placeholder="n">
         <button onclick = "play()" id = "ok">ok</button>
     </div>
-    <div id = "parent">
-    </div>
-    <div id = "primes_area">
+    <div>
+        <button style = "width:10px; height:10px;" onclick = "closeLogs()" id = "cbtn">[x]</button>
+    <div id = "logs">
     </div>
             </div>
-            <div id = "pseudos">
-                Sieve(N):
-                <p>for i from 1 to n </p>
-            <p>if i is prime</p>
-            <p> for j = i + i to j = N with step i </p>
-            <p>  mark j as not prime</p>
-            </div>
-            
         </div>
-        <div>
-
         </div>
-    </div>
     
     <script src = "sieve.js"></script>
 </body>
