@@ -129,3 +129,41 @@ export async function insertionSort(arr, delayMS, domArr) {
     await updateDOM([...arr], delayMS, domArr, true, j + 1, i);
   }
 }
+export async function quickSort(arr, delayMS, domArr) {
+  // Reset the controller to clear any previous steps
+  sortController.reset();
+  // Start the recursive QuickSort
+  await quickSortHelper(arr, 0, arr.length - 1, delayMS, domArr);
+  // Play through the generated steps
+  sortController.play(domArr);
+  sortController.pause();
+}
+
+async function quickSortHelper(arr, low, high, delayMS, domArr) {
+  if (low < high) {
+    let pi = await partition(arr, low, high, delayMS, domArr);
+    // Recursively sort elements before and after partition
+    await quickSortHelper(arr, low, pi - 1, delayMS, domArr);
+    await quickSortHelper(arr, pi + 1, high, delayMS, domArr);
+  }
+}
+
+async function partition(arr, low, high, delayMS, domArr) {
+  let pivot = arr[high];
+  let i = low - 1;
+  // Partitioning loop: compare each element with the pivot
+  for (let j = low; j < high; j++) {
+    // Highlight the comparison between arr[j] and the pivot at index high
+    sortController.addStep([...arr], j, high, false);
+    if (arr[j] < pivot) {
+      i++;
+      // Swap arr[i] and arr[j] and add a step to visualize the swap
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+      sortController.addStep([...arr], i, j, true);
+    }
+  }
+  // Swap the pivot element to its correct position
+  [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+  sortController.addStep([...arr], i + 1, high, true);
+  return i + 1;
+}
