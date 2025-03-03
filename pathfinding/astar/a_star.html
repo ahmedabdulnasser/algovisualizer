@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* playground</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="grid_container" oncontextmenu="return false;" ondragstart="return false;" ondrop="return false;">
+        <div id="grid" class="custom_grid">
+
+        </div>
+    </div>
+    <div class="controls">
+        <div class="controls_col">
+            <div class="controls_col">
+                <label><input type="checkbox" id="show_steps"> Show Steps</label>
+                <label><input type="checkbox" id="diagonal"> Diagonal Movement</label>
+            </div>
+            <div class="controls_col">
+                <button id="reset">Reset</button>
+                <button id="run">Run A*</button>
+            </div>
+        </div>
+        <div class="controls_col">
+            <p>Open Nodes: <span id="open_nodes_count">0</span></p>
+            <p>Closed Nodes: <span id="closed_nodes_count">0</span></p>
+            <p>Path Nodes: <span id="path_nodes_count">0</span></p>
+        </div>
+    </div>
+
+</body>
+<script src="./index.js"></script>
+
+</html>
