@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merge Sort | Algorhythm</title>
+    <link rel="shortcut icon" href="/assets/img/rubik.png" type="image/png" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/sorting.css" />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <a id="navbar__logo" href="/">
+          <img src="/assets/img/rubik.png" alt="Logo Image" /> Algorhythm
+        </a>
+        <ul id="navbar__links">
+          <li><a href="/" class="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Team</a></li>
+        </ul>
+        <a
+          href="https://github.com/ahmedabdulnasser/algovisualizer"
+          target="_blank"
+        >
+          <img
+            src="/assets/img/github.png"
+            alt="Source code on Github"
+            id="github-link"
+          />
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section class="info">
+        <h2>Merge Sort</h2>
+      </section>
+      <section id="previewArr"></section>
+
+      <section id="user-input">
+        <input
+          id="arr-input"
+          type="text"
+          placeholder="Comma-separated array values"
+        />
+        <button id="render-btn">Render</button>
+      </section>
+      <section id="controls">
+        <button id="decSpeed"><<</button>
+        <input id="sort-speed" type="text" disabled />
+        <button id="incSpeed">>></button>
+        <button id="playBtn">play</button>
+        <button id="pauseBtn">pause</button>
+        <button id="prevBtn">prev</button>
+        <button id="nextBtn">next</button>
+      </section>
+    </main>
+    <script type="module" src="./main.js"></script>
+    <script src="/js/bars.js"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A* playground</title>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+  </head>
+  <header>
+    <nav id="navbar">
+      <a id="navbar__logo" href="/">
+        <img src="/assets/img/rubik.png" alt="Logo Image" /> Algorhythm
+      </a>
+      <ul id="navbar__links">
+        <li><a href="">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Team</a></li>
+      </ul>
+      <a
+        href="https://github.com/ahmedabdulnasser/algovisualizer"
+        target="_blank"
+      >
+        <img
+          src="/assets/img/github.png"
+          alt="Source code on Github"
+          id="github-link"
+        />
+      </a>
+    </nav>
+  </header>
+  <body>
+    <main>
+      <div
+        class="grid_container"
+        oncontextmenu="return false;"
+        ondragstart="return false;"
+        ondrop="return false;"
+      >
+        <section class="info">
+          <h2>Pathfinding: A*</h2>
+        </section>
+        <div id="grid" class="custom_grid"></div>
+        <button id="toggle-controls">Toggle Controls</button>
+      </div>
+      <div class="controls">
+        <div class="controls_col">
+          <div class="controls_col">
+            <label><input type="checkbox" id="show_steps" /> Show Steps</label>
+            <label
+              ><input type="checkbox" id="diagonal" /> Diagonal Movement</label
+            >
+          </div>
+          <div class="controls_col">
+            <button id="reset">Reset</button>
+            <button id="run">Run A*</button>
+          </div>
+        </div>
+        <div class="controls_col">
+          <p>Open Nodes: <span id="open_nodes_count">0</span></p>
+          <p>Closed Nodes: <span id="closed_nodes_count">0</span></p>
+          <p>Path Nodes: <span id="path_nodes_count">0</span></p>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="./index.js"></script>
+  <script src="/js/nav.js"></script>
+  <script type="module" src="./main.js"></script>
+  <script src="./controls-toggler.js"></script>
+</html>
