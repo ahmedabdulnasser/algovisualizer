@@ -130,7 +130,7 @@ async function updateDOM(
 //   }
 // }
 
-function delay(ms) {
+export function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 function swapArrayElements(arr, i, j) {

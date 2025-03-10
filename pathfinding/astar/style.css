@@ -1,25 +1,33 @@
+main {
+  padding: 32px;
+  padding-top: 70px;
+  padding-bottom: 0;
+  position: relative;
+}
 .grid_container {
-    height: 100vh;
-    width: 100%;
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    background-color: #f0f0f0;
-    overflow: auto;
-    position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: var(--gray-secondary); */
+  overflow: auto;
+  position: relative;
+  border-radius: 16px;
 }
 
 .custom_grid {
-    display: grid;
-    grid-template-columns: repeat(var(--num-cols), var(--size)); 
-    grid-template-rows: repeat(var(--num-rows), var(--size));
-    background-color: rgb(96, 99, 100);
+  display: grid;
+  grid-template-columns: repeat(var(--num-cols), var(--size));
+  grid-template-rows: repeat(var(--num-rows), var(--size));
+  background-color: rgb(96, 99, 100);
 }
 
 .square {
-    position: relative;
-    background-color: #fff;
-    border: 1px solid #000;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #000;
 }
 
 /* .square.gcost {
@@ -29,56 +37,94 @@
 } */
 
 .gcost {
-    position: absolute;
-    bottom: 0.5%;
-    left: 2%;
-    font-size: calc(var(--size) * 0.15);
-    margin: 0;
+  position: absolute;
+  bottom: 0.5%;
+  left: 2%;
+  font-size: calc(var(--size) * 0.15);
+  margin: 0;
 }
 
 .hcost {
-    position: absolute;
-    bottom: 0.5%;
-    right: 4%;
-    font-size: calc(var(--size) * 0.15);
-    margin: 0;
+  position: absolute;
+  bottom: 0.5%;
+  right: 4%;
+  font-size: calc(var(--size) * 0.15);
+  margin: 0;
 }
 
 .fcost {
-    position: absolute;
-    top: 0.5%;
-    left: 2%;
-    font-size: calc(var(--size) * 0.3);
-    margin: 0;
+  position: absolute;
+  top: 0.5%;
+  left: 2%;
+  font-size: calc(var(--size) * 0.3);
+  margin: 0;
 }
 
 .controls {
-    position: absolute;
-    width: fit-content;
-    bottom: 3%;
-    left: 2.5%;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    pointer-events: none;
+  position: absolute;
+  width: fit-content;
+  top: 19%;
+  left: 5%;
+  background-color: rgb(24, 27, 32, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  pointer-events: none;
+  font-family: "Geo";
+  font-size: 1.1rem;
+  display: none;
 }
 
 .controls button input {
-    pointer-events: auto;
+  pointer-events: auto;
 }
 
 .controls_col p {
-    margin: 0;
+  margin: 0;
 }
 
 .controls_col {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  pointer-events: auto;
+}
+button {
+  width: 150px;
+  height: 30px;
+  background-color: var(--gray-secondary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-family: "Geo";
+  font-size: 1.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: rebeccapurple;
+}
+#toggle-controls {
+  background-color: var(--gray-secondary);
+  position: absolute;
+  top: 4%;
+  left: 3%;
+}
+#toggle-controls:hover {
+  background-color: rebeccapurple;
+}
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-family: "Geo";
+  margin-bottom: 10px;
 }

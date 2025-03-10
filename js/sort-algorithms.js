@@ -1,4 +1,9 @@
-import { updateDOM, swapArrayElements, sortController } from "./utils.js";
+import {
+  updateDOM,
+  swapArrayElements,
+  sortController,
+  delay,
+} from "./utils.js";
 let currSpeed = document.getElementById("sort-speed");
 currSpeed.value = "x1";
 currSpeed.dataset.speed = 750;
@@ -166,4 +171,67 @@ async function partition(arr, low, high, delayMS, domArr) {
   [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
   sortController.addStep([...arr], i + 1, high, true);
   return i + 1;
+}
+export async function mergeSort(arr, delayMS, domArr) {
+  sortController.reset();
+  // Add the initial unsorted state
+  sortController.addStep([...arr], -1, -1, false);
+
+  await mergeSortHelper(arr, 0, arr.length - 1, delayMS, domArr);
+
+  // Add a final step showing the fully sorted array
+  sortController.addStep([...arr], -1, -1, false);
+
+  // Start the visualization animation and await its completion
+  await sortController.play(domArr);
+}
+
+async function mergeSortHelper(arr, left, right, delayMS, domArr) {
+  if (left < right) {
+    let mid = Math.floor((left + right) / 2);
+    await mergeSortHelper(arr, left, mid, delayMS, domArr);
+    await mergeSortHelper(arr, mid + 1, right, delayMS, domArr);
+    await merge(arr, left, mid, right, delayMS, domArr);
+  }
+}
+
+async function merge(arr, left, mid, right, delayMS, domArr) {
+  let leftArr = arr.slice(left, mid + 1);
+  let rightArr = arr.slice(mid + 1, right + 1);
+  let i = 0,
+    j = 0,
+    k = left;
+
+  // Merge the two arrays into the original array
+  while (i < leftArr.length && j < rightArr.length) {
+    if (leftArr[i] <= rightArr[j]) {
+      arr[k] = leftArr[i];
+      i++;
+    } else {
+      arr[k] = rightArr[j];
+      j++;
+    }
+    // Add a step to show the update at index k
+    sortController.addStep([...arr], k, k, false);
+    k++;
+  }
+
+  // Copy any remaining elements of leftArr, if any
+  while (i < leftArr.length) {
+    arr[k] = leftArr[i];
+    sortController.addStep([...arr], k, k, false);
+    i++;
+    k++;
+  }
+
+  // Copy any remaining elements of rightArr, if any
+  while (j < rightArr.length) {
+    arr[k] = rightArr[j];
+    sortController.addStep([...arr], k, k, false);
+    j++;
+    k++;
+  }
+
+  // Allow a short delay to visualize this merge step
+  await delay(delayMS);
 }

@@ -2,10 +2,12 @@ body {
   background-color: var(--gray-main);
   color: white;
   /* height: 200vh; */
+  /* border-radius: 16px; */
 }
 main {
   padding: 32px;
   padding-top: 100px;
+  position: relative;
 }
 /* Hero */
 
