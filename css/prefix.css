@@ -1,0 +1,229 @@
+main {
+    padding: 32px;
+    padding-top: 100px;
+    padding-bottom: 0;
+    /* margin-top: 50px; */
+}
+#previewArr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    height: 15vh;
+    position: relative;
+}
+#prefixSumArray {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    height: 17vh;
+    position: relative;
+}
+.arrays {
+    margin-top: 50px;
+}
+.formula {
+    color: #4caf50;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.formula span {
+    font-weight: bold;
+    padding: 2px 5px;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 3px;
+}
+.array-element {
+    transition: box-shadow 0.5s ease-in-out;
+    font-family: "Geo", Times, serif;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    padding: 10px;
+}
+#random-btn {
+    cursor: pointer;
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+#random-btn:hover {
+    transform: scale(1.2);
+}
+
+#dice-icon {
+    font-size: 25px;
+    transition: color 0.3s ease;
+}
+
+button {
+    width: 75px;
+    height: 30px;
+    background-color: var(--gray-secondary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-family: "Geo";
+    font-size: 1.25rem;
+    transition: all 0.3s ease-in-out;
+}
+button:hover {
+    background-color: rebeccapurple;
+}
+input#sort-speed {
+    height: 30px;
+    width: 30px;
+    font-size: 1rem;
+    font-family: "Times New Roman";
+
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: var(--gray-secondary);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+.user-input {
+    margin-bottom: 10px;
+}
+
+.user-input input {
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    height: 20px;
+    width: 350px;
+    font-size: 1.25rem;
+    padding: 5px;
+    font-family: "Saira Condensed";
+}
+
+.dod {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Info Section */
+
+.info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: "Geo";
+}
+
+.summtion {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.highlight {
+    box-shadow: 0 4px 8px rgba(7, 201, 255, 0.852);
+    /* padding: 10px; */
+}
+
+.mark {
+    box-shadow: 0 4px 8px rgba(236, 209, 5, 0.852);
+}
+.found {
+    box-shadow: 0 4px 8px rgba(55, 204, 120, 0.7);
+    /* padding: 10px; */
+}
+
+.visited {
+    box-shadow: 0 4px 8px rgba(255, 7, 7, 0.852);
+}
+
+.not-found {
+    /* border: 2px solid transparent;
+    border-image: linear-gradient(to right, #dc3545, #f44336);
+    border-image-slice: 1; */
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.7);
+    transition: box-shadow 0.5s ease-in-out;
+    padding: 5px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: linear-gradient(
+        135deg,
+        rgba(10, 10, 10, 0.8),
+        rgba(10, 10, 10, 0.6)
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 300px;
+}
+
+.popup-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.popup button {
+    width: 100px;
+}
+
+#currSum,
+#maxSum,
+#currentStep,
+#currentSum,
+#currElement,
+#targetValue {
+    transition: box-shadow 1s ease-in-out, transform 0.7s ease-in-out;
+    font-family: "Geo", Times, serif;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+#random-btn.disabled {
+    opacity: 0.5; /* Make it look disabled */
+    pointer-events: none; /* Prevent clicks */
+    cursor: not-allowed; /* Show disabled cursor */
+}
+
+#left,
+#right {
+    width: 10%;
+}
