@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+    --gray-main: #181b20;
+    --gray-secondary: #23272f;
+    --red: #ca201d;
+}
+.geo-regular {
+    font-family: "Geo", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.geo-regular-italic {
+    font-family: "Geo", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+.saira-condensed-thin {
+    font-family: "Saira Condensed", serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.saira-condensed-extralight {
+    font-family: "Saira Condensed", serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.saira-condensed-light {
+    font-family: "Saira Condensed", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.saira-condensed-regular {
+    font-family: "Saira Condensed", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.saira-condensed-medium {
+    font-family: "Saira Condensed", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.saira-condensed-semibold {
+    font-family: "Saira Condensed", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.saira-condensed-bold {
+    font-family: "Saira Condensed", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.saira-condensed-extrabold {
+    font-family: "Saira Condensed", serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.saira-condensed-black {
+    font-family: "Saira Condensed", serif;
+    font-weight: 900;
+    font-style: normal;
+}
