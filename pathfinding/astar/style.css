@@ -22,12 +22,16 @@ main {
   grid-template-columns: repeat(var(--num-cols), var(--size));
   grid-template-rows: repeat(var(--num-rows), var(--size));
   background-color: rgb(96, 99, 100);
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .square {
   position: relative;
   background-color: #fff;
   border: 1px solid #000;
+  color: rgb(22, 21, 21);
 }
 
 /* .square.gcost {
@@ -78,6 +82,9 @@ main {
   font-family: "Geo";
   font-size: 1.1rem;
   display: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .controls button input {

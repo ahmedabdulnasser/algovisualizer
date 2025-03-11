@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
     />
+    <link rel="shortcut icon" href="/assets/img/rubik.png" type="image/png" />
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/css/globals.css" />
@@ -50,7 +51,7 @@
         <div id="grid" class="custom_grid"></div>
         <button id="toggle-controls">Toggle Controls</button>
       </div>
-      <div class="controls">
+      <div class="controls" oncontextmenu="return false;">
         <div class="controls_col">
           <div class="controls_col">
             <label><input type="checkbox" id="show_steps" /> Show Steps</label>
@@ -73,6 +74,5 @@
   </body>
   <script src="./index.js"></script>
   <script src="/js/nav.js"></script>
-  <script type="module" src="./main.js"></script>
   <script src="./controls-toggler.js"></script>
 </html>
