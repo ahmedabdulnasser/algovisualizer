@@ -1,0 +1,92 @@
+#main{
+   width:100vw;
+   height:20vh;
+}
+body{
+    color:white;
+    background-color: black;
+}
+#parent{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    
+}
+#parent-parent{
+    display: grid;
+    width:100%;
+    height: 100%;
+    grid-template-rows: 1fr 5fr;
+}
+#parent-parent > div{
+    
+}
+#parent-res{
+    display: grid;
+    width:100%;
+    grid-template-columns: repeat(auto-fill, minmax(40px, auto));
+    
+
+}
+#parent-res div{
+    border:1px solid black;
+    background-color: green;
+    margin-bottom: 10px;
+    max-height:5vh;
+}
+#parent-res div:hover{
+    cursor: pointer;
+}
+#pseudo{
+    width: 20%;
+}
+#parent-res .eliminated{
+    background-color: white;
+    animation-name: eliminate;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+@keyframes eliminate {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(100vh);
+    }
+    100%{
+        transform: translateY(100vh);
+        visibility: hidden;
+    }
+}
+#parent-res .select{
+    background-color:blue;
+}
+#parent-res .found{
+    background-color: #663399 !important;
+    
+}
+
+#recommended_problems {
+    display: grid;
+    grid-template-rows: 500px;
+    gap:20px;
+  }
+  #recommended_problems a, #main{
+    background-color: #181b20;
+    display: block;
+  }
+  
+  #recommended_problems a:hover{
+    background-color: white;
+    color:black;
+  }
+ 
+#buttons{
+    display: grid;
+    height: 100%;
+    width:50%;
+    grid-template-columns: repeat(5, 1fr);
+}
+#buttons img{
+    width: 15%;
+    height: 15%;
+}
