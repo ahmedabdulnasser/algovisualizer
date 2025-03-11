@@ -22,12 +22,16 @@ main {
   grid-template-columns: repeat(var(--num-cols), var(--size));
   grid-template-rows: repeat(var(--num-rows), var(--size));
   background-color: rgb(96, 99, 100);
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .square {
   position: relative;
   background-color: #fff;
   border: 1px solid #000;
+  color: rgb(22, 21, 21);
 }
 
 /* .square.gcost {
@@ -63,7 +67,7 @@ main {
 .controls {
   position: absolute;
   width: fit-content;
-  top: 19%;
+  top: 16%;
   left: 5%;
   background-color: rgb(24, 27, 32, 0.8);
   color: white;
@@ -78,6 +82,9 @@ main {
   font-family: "Geo";
   font-size: 1.1rem;
   display: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .controls button input {
@@ -111,15 +118,7 @@ button {
 button:hover {
   background-color: rebeccapurple;
 }
-#toggle-controls {
-  background-color: var(--gray-secondary);
-  position: absolute;
-  top: 4%;
-  left: 3%;
-}
-#toggle-controls:hover {
-  background-color: rebeccapurple;
-}
+
 .info {
   width: 100%;
   display: flex;
@@ -127,4 +126,41 @@ button:hover {
   font-size: 2rem;
   font-family: "Geo";
   margin-bottom: 10px;
+}
+
+.interface_menus {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 10px;
+  position: absolute;
+  top: 4%;
+  left: 3%;
+}
+
+.interface_menus button {
+  background-color: var(--gray-secondary);
+  width: 100% !important;
+  white-space: nowrap;
+}
+
+.interface_menus button:hover {
+  background-color: rebeccapurple;
+}
+
+.controls_col h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  color: rgb(14, 154, 235);
+}
+
+.controls_col li {
+  list-style: none;
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.controls_col strong {
+  color: rgb(14, 154, 235);
 }

@@ -143,6 +143,7 @@ class Main {
     }
 
     toggleSquareColor(square, color = "black") {
+        this.clearCosts();
         square.style.backgroundColor = color;
         square.dataset.type = square.dataset.type === "wall" ? "none" : "wall";
     }
@@ -199,6 +200,7 @@ class Main {
     }
 
     toggleStartNode(square) {
+        this.clearCosts();
         if (this.start === square) {
             square.dataset.type = "none";
             square.style.backgroundColor = "white";
@@ -215,6 +217,7 @@ class Main {
     }
 
     toggleEndNode(square) {
+        this.clearCosts();
         if (this.end === square) {
             square.dataset.type = "none";
             square.style.backgroundColor = "white";
@@ -257,6 +260,12 @@ class Main {
         });
         
         this.updateNodeCounts(0, 0, 0);
+    }
+
+    clearCosts() {
+        this.squareList.forEach(square => {
+            square.innerHTML = "";
+        });
     }
 
     updateNodeCounts(openNodes, closedNodes, pathNodes) {
