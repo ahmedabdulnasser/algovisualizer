@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "css/style.css">
+</head>
+<body>
+    
+    <div class="parent-grid">
+        <div id = "recommended_problems">
+            <div>
+            <h2>Solve Problems with this algorithm</h2>
+            <a href = "https://leetcode.com/problems/count-primes/description/">
+                Count Primes
+            </a>
+            <a href = "https://leetcode.com/problems/closest-prime-numbers-in-range/description/">
+                Twin Primes
+            </a>
+            </div>
+
+        </div>
+        
+        <div id = "col2">
+        <div id = "buttons">
+            <button onclick="resume()">
+                <img src = "./images/resume.png">
+            </button>
+            <button onclick="stop()">
+                <img src = "./images/stop.png">
+            </button>
+            <button onclick="speedup()">
+                <img src = "./images/speedup.png">
+            </button>
+            <button onclick="speeddown()">
+                <img src = "./images/speeddown.png">
+            </button>
+            <button onclick="max()">
+                <img src = "./images/max.jpg">
+            </button>
+        </div>
+        <div id = "row2-div">
+                
+    <div id = "parent">
+    </div>
+    <div id = "primes_area">
+    </div>
+            </div>
+            </div>
+            <div id = "third_column">
+                
+    <div id = "form">
+        <label>enter N </label>
+        <input id = "size" placeholder="n">
+        <button onclick = "play()" id = "ok">ok</button>
+    </div>
+    <div>
+        <button style = "width:10px; height:10px;" onclick = "closeLogs()" id = "cbtn">[x]</button>
+    <div id = "logs">
+    </div>
+            </div>
+        </div>
+        </div>
+    
+    <script src = "sieve.js"></script>
+</body>
+</html>
