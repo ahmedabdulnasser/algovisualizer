@@ -18,3 +18,10 @@ border:1px solid red;
 .main-select{
     background-color: red;
 }
+.gold-span{
+    color:gold;
+}
+.consider{
+    color:goldenrod;
+    border:solid 1px blueviolet;
+}
