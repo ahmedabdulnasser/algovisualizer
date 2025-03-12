@@ -59,7 +59,7 @@
           type="number"
           placeholder="enter a number"
         />
-        <button id="search-btn" onclick="search(1)">search</button>
+        <button id="search-btn" onclick="disableButtons(); search(1); enableButtons()">search</button>
       </section>
       
       <section id="controls">
@@ -75,6 +75,9 @@
       </section>
       <section id = "algorithm">
 
+      </section>
+      <section id = "order">
+        
       </section>
     </main>
     <script src = "graph.js"></script>

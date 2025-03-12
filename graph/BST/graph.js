@@ -13,6 +13,7 @@ var height = 0;
 var defaultColor = 'white';
 var exploreColor = "#663399";
 var pause = 0;
+var traverserOrder = document.getElementById('visit-order');
 function resume()
 {
     pause = 0;
@@ -27,7 +28,7 @@ function add()
     if (!n)return ;
     insert(n);
 }
-function svgExtend() {
+async function svgExtend() {
     const box = svg.getBBox();
     const sidePadding = red *11;
     const topPadding = red * 0.5; 
@@ -75,28 +76,26 @@ async function reorder()
 {
     for (let i = 1;; i ++)
     {
-        let start = 40;
-        for (let j = (1 << (i  -1)); j < (1 << i); j ++)
+        let prevx = -1000;
+        for (let j = (1 << (i  -1)) + 1; j < (1 << i); j ++)
         {
             if (j >= nodes.length)return ;
-            if (!nodes[j])
-            {
-                start += 2 * red;
-                return ;
-            }
-            nodes[j].setAttribute('cx', start);
-            text = document.getElementById(j+"-text");
-            text.setAttribute('x', start);
-            line = document.getElementById(j+'-line');
-            if (line)
-            line.setAttribute('x2',start);
-            start += 2 * red;
+            if (nodes[j - 1])prevx = parseInt(nodes[j - 1].getAttribute('cx'));
+            if (!nodes[j])continue;
+            let cx =  parseInt(nodes[j].getAttribute('cx'));
+            if (Math.abs(cx - prevx) < red * 2)cx = prevx + red * 2;
+            console.log(cx + " " + j);
+            nodes[j].setAttribute('cx', cx);
+            texts[j].setAttribute('x', cx);
+            if (edges[j])
+            edges[j].setAttribute('x2',cx);
         }
     }
     
 }
 async function insert(x)
 {
+    console.log("insert" + x + " " + nodes.length);
     let ind = 1;
     while (nodes[ind])
     {
@@ -163,7 +162,7 @@ async function insert(x)
         }
         height = Math.max(height, parseInt(parent.getAttribute('cy')) + 80);
         sq *= 2;
-        circle.setAttribute('cy', parseInt(parent.getAttribute('cy')) + red * 3);
+        circle.setAttribute('cy', parseInt(parent.getAttribute('cy')) + red * 5);
         circle.setAttribute('r', red);
         circle.setAttribute('fill', defaultColor);
         circle.setAttribute('stroke', 'black');
@@ -192,7 +191,9 @@ async function insert(x)
     
     texts[ind] = text;
     
-    svgExtend();
+    await svgExtend();
+    
+    await reorder();
     
 }
 
@@ -206,6 +207,12 @@ async function postorder(ind)
     await postorder(right);
     nodes[ind].setAttribute('fill', exploreColor);
     texts[ind].setAttribute('fill', '#FFD700');
+    if (ind == 1)
+    {
+        
+        traverserOrder.innerHTML = "";
+        addTraversedNode("post order traverse ( left - right - root ) ");
+    }
     if (ind > 1)
     {
         edges[ind].setAttribute('stroke-dasharray', "7,5");
@@ -227,11 +234,60 @@ async function postorder(ind)
     nodes[ind].setAttribute('fill', 'grey');
 
 }
+async function addTraversedNode(value)
+{
+    let div = document.createElement('div');
+    let p = document.createElement('p');
+    p.innerHTML = value;
+    div.appendChild(p);
+    traverserOrder.appendChild(div);
+}
+async function inorder(ind)
+{
+    let left = ind << 1;
+    let right = left + 1;
+    if (nodes[left])await inorder(left);
+    nodes[ind].setAttribute('fill', exploreColor);
+    texts[ind].setAttribute('fill', '#FFD700');
+    if (ind == 1)
+    {
+        
+        traverserOrder.innerHTML = "";
+        addTraversedNode("pre order Traverser (Root - left - right)");
+    }
+    if (ind > 1)
+    {
+        edges[ind].setAttribute('stroke-dasharray', "7,5");
+        edges[ind].setAttribute('stroke', 'green');
+        edges[ind].setAttribute('stroke-width', '2');
+        
+    }
+    await delay(3000);
+    nodes[ind].setAttribute('fill', 'grey');
+    await addTraversedNode(texts[ind].textContent);
+    texts[ind].setAttribute('fill', 'black');
+    if (ind > 1)
+    {
+        
+        edges[ind].setAttribute('stroke', 'black');
+        edges[ind].setAttribute('stroke-dasharray', 'none');
+    }
+    
+    texts[ind].setAttribute('fill', 'black');
+    if (nodes[right])await inorder(right);
+    
+
+}
 async function preorder(ind)
 {
     console.log(texts[ind].textContent);
     nodes[ind].setAttribute('fill', exploreColor);
     texts[ind].setAttribute('fill', '#FFD700');
+    if (ind == 1)
+    {
+        traverserOrder.innerHTML = "";
+        addTraversedNode("pre order Traverser (Root - left - right)");
+    }
     if (ind > 1)
     {
         edges[ind].setAttribute('stroke-dasharray', "7,5");
@@ -243,6 +299,7 @@ async function preorder(ind)
     let left = ind << 1;
     let right = left + 1;
     nodes[ind].setAttribute('fill', 'grey');
+    await addTraversedNode(texts[ind].textContent);
     texts[ind].setAttribute('fill', 'black');
     if (ind > 1)
     {
@@ -320,5 +377,41 @@ async function build(n)
     }
     
 }
+async function removeAll()
+{
+    for (let i = 0; i < nodes.length; i ++)
+    {
+        if (edges[i])svg.removeChild(edges[i]);
+        if (nodes[i])svg.removeChild(nodes[i]);
+        if (texts[i])svg.removeChild(texts[i]);
+    }
+    nodes = [];
+    edges = [];
+    texts = [];
+}
+async function balanceTree(first, last)
+{
+    if (last != undefined && first >= last)return ;
+    if (!last)
+    {
+        console.log(last);
+        console.log("HELL");
+        await inorder(1);
+        await removeAll();
+        
+        var divs = traverserOrder.children;
+        last = divs.length;
+
+    }
+    console.log(first, last);
+    await delay(1000);
+    let mid = (first + last) >> 1;
+    let v = parseInt(traverserOrder.children[mid].firstChild.innerHTML);
+    console.log(v);
+    await insert(v);
+    await balanceTree(first, mid);
+    await balanceTree(mid + 1, last);
+    
+}
 //build(n);
-//for (let i = 0; i < 11; i ++)insert(i);
+for (let i = 46; i < 54; i ++)insert(i);
