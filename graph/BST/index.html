@@ -1,15 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<link rel = "stylesheet" href = "css/style.css">
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary Search Tree | Algorhythm</title>
+    <link rel="shortcut icon" href="/assets/img/rubik.png" type="image/png" />
+    
+    <link rel="shortcut icon" href="/assets/img/rubik.png" type="image/png" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/globals.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/nav.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <a id="navbar__logo" href="/">
+          <img src="./assets/img/rubik.png" alt="Logo Image" /> Algorhythm
+        </a>
+        <ul id="navbar__links">
+          <li><a href="/" class="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Team</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+        <a
+          href="https://github.com/ahmedabdulnasser/algovisualizer"
+          target="_blank"
+        >
+          <img
+            src="./assets/img/github.png"
+            alt="Source code on Github"
+            id="github-link"
+          />
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section class="info">
+        <h2>Binary Sarch Tree</h2>
+      </section>
+      
+      <section id="previewArr"></section>
+
+      <section id="user-input">
+        <input
+          id="size"
+          type="number"
+          placeholder="enter a number"
+        />
+        <button id="render-btn" onclick="add()">insert</button>
+      </section>
+      <section id="search">
+        <input
+          id="search-input"
+          type="number"
+          placeholder="enter a number"
+        />
+        <button id="search-btn" onclick="search(1)">search</button>
+      </section>
+      
+      <section id="controls">
+        <button id="decSpeed"><<</button>
+        <input id="sort-speed" type="text" disabled />
+        <button id="incSpeed">>></button>
+        <button id="playBtn" onclick = "resume()">play</button>
+        <button id="pauseBtn" onclick="stop()">pause</button>
+        <button id="preorder" onclick = "preorder(1)">preorder</button>
+        <button id="postorder" onclick = "postorder(1)">postorder</button>
+        <button onclick = "clearEffects()">
+        reset graph </button>
+      </section>
+      <section id = "algorithm">
+
+      </section>
+    </main>
     <script src = "graph.js"></script>
-    
-    
-    
-</body>
+  </body>
 </html>
