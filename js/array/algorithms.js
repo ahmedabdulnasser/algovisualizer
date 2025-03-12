@@ -171,6 +171,111 @@ class Visualize {
             randomBtn.classList.remove("disabled");
         });
     }
+    static async binarySearch() {
+        const renderBtn = document.getElementById("render-btn");
+        const randomBtn = document.getElementById("random-btn");
+        const playBtn = document.getElementById("playBtn");
+
+        //!
+        Utils.callEventHandlers();
+        //!
+        // overriding events for bs to generate sorted array
+        renderBtn.onclick = () => Utils.renderArr(false, true);
+        randomBtn.onclick = () => Utils.renderArr(true, true);
+
+        playBtn.addEventListener("click", async () => {
+            Utils.isStopped = false;
+            renderBtn.disabled = true;
+            randomBtn.classList.add("disabled");
+
+            const arr = document.querySelectorAll(".array-element");
+            const currElement = document.getElementById("currElement");
+            const targetValue = document.getElementById("targetValue");
+            const resultPopup = document.querySelector(".popup");
+            const result = document.getElementById("result");
+
+            const target = Number(
+                document.getElementById("target-input-field").value
+            );
+            if (target === 0) {
+                alert("You Should enter a number before search!");
+                return;
+            }
+            targetValue.textContent = `Target: ${target}`;
+
+            let foundIndex = -1;
+            let left = 0;
+            let right = arr.length - 1;
+
+            // Reset all classes
+            arr.forEach((el) =>
+                el.classList.remove("highlight", "found", "visited", "mark")
+            );
+
+            while (left <= right) {
+                if (Utils.isStopped) {
+                    break;
+                }
+
+                const mid = Math.floor((left + right) / 2);
+                const midElement = arr[mid];
+
+                // Highlight left and right pointers using the 'mark' class
+                arr[left].classList.add("mark");
+                arr[right].classList.add("mark");
+
+                // Highlight mid element
+                midElement.classList.add("highlight");
+                currElement.textContent = `Mid: ${midElement.textContent}`;
+                currElement.classList.add("highlight");
+                await Utils.delay(Utils.currentSpeed);
+                currElement.classList.remove("highlight");
+                await Utils.delay(Utils.currentSpeed);
+
+                // Check if current element matches target
+                const midValue = Number(midElement.textContent);
+                if (midValue === target) {
+                    foundIndex = mid;
+                    midElement.classList.add("found");
+                    break;
+                } else if (midValue < target) {
+                    // Highlight the excluded left portion as visited
+                    for (let i = left; i <= mid; i++) {
+                        arr[i].classList.add("visited");
+                    }
+                    left = mid + 1;
+                } else {
+                    // Highlight the excluded right portion as visited
+                    for (let i = mid; i <= right; i++) {
+                        arr[i].classList.add("visited");
+                    }
+                    right = mid - 1;
+                }
+
+                // Remove 'mark' class from left and right pointers for the next iteration
+                arr[left]?.classList.remove("mark");
+                arr[right]?.classList.remove("mark");
+
+                await Utils.delay(Utils.currentSpeed);
+
+                if (!Utils.isStopped) {
+                    midElement.classList.remove("highlight");
+                }
+            }
+            await Utils.delay(2000);
+
+            if (!Utils.isStopped) {
+                resultPopup.style.display = "flex";
+                result.innerHTML =
+                    foundIndex !== -1
+                        ? `Found at index ${foundIndex}`
+                        : "Target not found";
+            }
+
+            renderBtn.disabled = false;
+            randomBtn.classList.remove("disabled");
+        });
+    }
 
     static async prefixSum() {
         const renderBtn = document.getElementById("render-btn");

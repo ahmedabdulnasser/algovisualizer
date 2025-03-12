@@ -1,62 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>binary search</title>
-    <link rel = 'stylesheet' href = "css/style.css">
-</head>
-<body>
-        <div id = "main">
-            <center><header>Binary Search </header> </center>
-        </div>
-    <div id = "parent">
-        <div id = "recommended_problems">
-            <div>
-            <h2>Solve Problems with this algorithm</h2>
-            <a href = "https://leetcode.com/problems/binary-search/">
-                search for a number
-            </a>
-            <a href = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/?envType=problem-list-v2&envId=binary-search">
-                smallest letter
-            </a>
-            </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Binary Search</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
 
-        </div>
-        
-    <div id = "parent-parent">
-        <div id = "buttons">
-            <button onclick="resume()">
-                <img src = "../Sieve/images/resume.png">
-            </button>
-            <button onclick="stop()">
-                <img src = "../Sieve/images/stop.png">
-            </button>
-            <button onclick="speedup()">
-                <img src = "../Sieve/images/speedup.png">
-            </button>
-            <button onclick="speeddown()">
-                <img src = "../Sieve/images/speeddown.png">
-            </button>
-            <button onclick="max()">
-                <img src = "../Sieve/images/max.jpg">
-            </button>
-        </div>
-        
-    <div id = "parent-res">
-    </div>
-    </div>
-    
-    <div>
-        <div id = 'ask-for-n'>
-            <h2>enter the eleemnts of the array seperated by a space</h2>
-            <textarea id = "array-numbers"></textarea>
-            <h2>Or get a random array of size n</h2>
-            <input type = "number" id = "required-size" placeholder="n"><br>
-            <button onclick="play()">ok</button>
+        <link
+            rel="shortcut icon"
+            href="../../assets/img/rubik.png"
+            type="image/png"
+        />
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/globals.css" />
+        <link rel="stylesheet" href="/css/home.css" />
+        <link rel="stylesheet" href="/css/nav.css" />
+        <link rel="stylesheet" href="/css/footer.css" />
+        <link rel="stylesheet" href="/css/sw.css" />
+    </head>
+    <body>
+        <header>
+            <nav id="navbar">
+                <a id="navbar__logo" href="/">
+                    <img src="/assets/img/rubik.png" alt="Logo Image" />
+                    Algorhythm
+                </a>
+                <ul id="navbar__links">
+                    <li><a href="/" class="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Team</a></li>
+                    <li><a href="">Link</a></li>
+                </ul>
+                <a
+                    href="https://github.com/ahmedabdulnasser/algovisualizer"
+                    target="_blank"
+                >
+                    <img
+                        src="/assets/img/github.png"
+                        alt="Source code on Github"
+                        id="github-link"
+                    />
+                </a>
+            </nav>
+        </header>
+        <main>
+            <section class="info">
+                <h2>Binary Search</h2>
+            </section>
+            <section id="previewArr"></section>
+            <section class="summtion">
+                <p id="currElement">Mid:</p>
+                <p id="targetValue">Target:</p>
+            </section>
+            <section class="dod">
+                <section id="array-input" class="user-input">
+                    <input
+                        id="arr-input"
+                        type="text"
+                        placeholder="Comma-separated array values"
+                    />
+                    <button id="render-btn">Render</button>
+                    <span id="random-btn"
+                        ><i class="fas fa-dice" id="dice-icon"></i
+                    ></span>
+                </section>
+                <section id="target-input" class="user-input">
+                    <input
+                        id="target-input-field"
+                        type="text"
+                        placeholder="Enter target number"
+                    />
+                </section>
+
+                <section id="controls">
+                    <button id="decSpeed"><<</button>
+                    <span id="speedValue">1x</span>
+                    <button id="incSpeed">>></button>
+                    <button id="playBtn">play</button>
+                    <button id="pauseBtn">pause</button>
+                </section>
+            </section>
+            <div class="popup">
+                <div class="popup-content">
+                    <h2>Result</h2>
+                    <p id="result"></p>
+                    <button id="playAgainBtn">Restart</button>
+                </div>
             </div>
-        </div>
-    <script src = "binarySearch.js"></script>
-    </div>
-</body>
+        </main>
+        <script type="module" src="/js/array/main.js"></script>
+        <!-- <script src="./binarySearch.js"></script> -->
+    </body>
 </html>

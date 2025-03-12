@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("linear");
         Visualize.linearSearch();
     }
+
+    if (document.title.startsWith("B")) {
+        Visualize.binarySearch();
+    }
     if (document.title.startsWith("P")) {
         Visualize.prefixSum();
     }

@@ -228,3 +228,11 @@ input#sort-speed {
 #right {
     width: 10%;
 }
+
+.arrow {
+    position: absolute;
+    bottom: -30px; /* Position below element with margin */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}

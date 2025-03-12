@@ -3,7 +3,7 @@ class Utils {
     static currentIndex = 0;
     static currentSpeed = 1000;
 
-    static renderArr(isRandom) {
+    static renderArr(isRandom, isSorted) {
         const previewArr = document.getElementById("previewArr");
         previewArr.innerHTML = "";
         this.currentIndex = 0;
@@ -19,6 +19,11 @@ class Utils {
                 }
             }
         }
+
+        if (isSorted) {
+            arr.sort((a, b) => a - b);
+        }
+
         for (const el of arr) {
             if (isNaN(el)) {
                 alert("Please enter array values first!");
@@ -30,6 +35,7 @@ class Utils {
             previewArr.appendChild(div);
         }
     }
+
     static initPrefixArray() {
         const previewArr = document.getElementById("previewArr");
         const prefixSumArray = document.getElementById("prefixSumArray");
