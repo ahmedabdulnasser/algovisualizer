@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleControlsInfoButton = document.getElementById("toggle-controls-info");
   const controls = document.querySelector("#controls");
   const controlsInfo = document.querySelector("#controls-info");
+  const popup = document.querySelector("#popup");
+  const closePopupButton = document.querySelector("#close-popup");
 
   toggleButton.addEventListener("click", function () {
     if (controls.style.display === "none" || controls.style.display === "") {
@@ -27,4 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleControlsInfoButton.textContent = "Show Controls Info";
     }
   });
+
+  closePopupButton.addEventListener("click", function () {
+    popup.style.display = "none";
+  });
+
 });
