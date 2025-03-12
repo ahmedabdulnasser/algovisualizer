@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pascal Traingle | Algorhythm</title><link rel="shortcut icon" href="/assets/img/rubik.png" type="image/png" />
+    
+    <link rel="shortcut icon" href="/graph/BST/img/rubik.png" type="image/png" />
+    <link rel="stylesheet" href="/graph/css/reset.css" />
+    <link rel="stylesheet" href="/graph/BST/css/globals.css" />
+    <link rel="stylesheet" href="/graph/BST/css/home.css" />
+    <link rel="stylesheet" href="/graph/BST/css/nav.css" />
+    <link rel="stylesheet" href="/graph/BST/css/footer.css" />
+    <link rel="stylesheet" href="css/pascal.css" />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <a id="navbar__logo" href="/">
+          <img src="/graph/BST/assets/img/rubik.png" alt="Logo Image" /> Algorhythm
+        </a>
+        <ul id="navbar__links">
+          <li><a href="/" class="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Team</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+        <a
+          href="https://github.com/ahmedabdulnasser/algovisualizer"
+          target="_blank"
+        >
+          <img
+            src="../../graph/BST/assets/img/github.png"
+            alt="Source code on Github"
+            id="github-link"
+          />
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section class="info">
+        <h2>Pascal Traingle</h2>
+      </section>
+      
+      <section id="previewArr"></section>
+
+      <section id="user-input">
+        <input
+          id="rows-number"
+          type="number"
+          placeholder="enter number of rows"
+        />
+        <button id="render-btn" onclick="draw()">insert</button>
+      </section>
+      
+      <section id="controls">
+        <button id="decSpeed"><<</button>
+        <input id="sort-speed" type="text" disabled />
+        <button id="incSpeed">>></button>
+        <button id="playBtn" onclick = "resume()">play</button>
+        <button id="pauseBtn" onclick="stop()">pause</button>
+      </section>
+      <section>
+        
+      <section id = "bolynomial">
+        <h2>calculate (x + y)  <sup>n</sup> using pascal triangle</h2>
+        <input type = "number" placeholder="enter x" id = "x">
+        <input type = "number" placeholder="enter y" id = "y">
+        <input type = "number" placeholder="enter n" id = 'n'>
+        <button onclick = "calcBolynomial()">ok</button>
+        <p id = "result">
+
+        </p>
+      </section>
+      </setion>
+      <section id = "algorithm">
+            
+      </section>
+      </section>
+    </main>
+    <script src = "pascal.js"></script>
+  </body>
+</html>

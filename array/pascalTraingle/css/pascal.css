@@ -1,0 +1,20 @@
+#algorithm{
+    display: grid;
+    height: 80%;
+    grid-template-rows: repeat(auto-fill, minmax(40px, auto));
+}
+#algorithm div{
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(auto-fill, minmax(40px, auto));
+}
+#algorithm div  p{
+border:1px solid red;
+}
+.select{
+    background-color: blanchedalmond;
+
+}
+.main-select{
+    background-color: red;
+}

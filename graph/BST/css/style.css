@@ -1,4 +1,23 @@
-svg {
-    width:100vw !important;
-    height: 100vh !important;
+
+circle{
+    max-width: 40;
+    max-height: 40;
+}
+#algorithm {
+    height: fit-content;
+}
+main{
+    flex-grow: 1;
+}
+#algorithm{
+    border: 1px solid red;
+    display:flex;
+    background-color: var(--gray-secondary);
+}
+#visit-order{
+    display : grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, auto));
+}
+#visit-order div{
+    border:1px solid red;
 }
