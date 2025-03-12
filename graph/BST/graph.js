@@ -29,7 +29,7 @@ function add()
 }
 function svgExtend() {
     const box = svg.getBBox();
-    const sidePadding = red * 2;
+    const sidePadding = red *11;
     const topPadding = red * 0.5; 
     let viewBoxX = box.x - sidePadding;
     let viewBoxY = box.y - topPadding;
@@ -47,7 +47,23 @@ function svgExtend() {
     svg.setAttribute("width", "100%");
     svg.setAttribute("height", `${parentWidth / aspectRatio}px`);
 }
+function disableButtons()
+{
+    let b = document.getElementsByTagName('button');
+    for (let button in b)
+    {
+        b.disabled = true;
+    }
+}
 
+function enableButtons()
+{
+    let b = document.getElementsByTagName('button');
+    for (let button in b)
+    {
+        b.disabled = false;
+    }
+}
 async function delay(ms) {
     while (pause)
     {
