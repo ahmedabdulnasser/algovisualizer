@@ -14,6 +14,7 @@ var defaultColor = 'white';
 var exploreColor = "#663399";
 var pause = 0;
 var traverserOrder = document.getElementById('visit-order');
+let m = 1000;
 function resume()
 {
     pause = 0;
@@ -53,7 +54,7 @@ function disableButtons()
     let b = document.getElementsByTagName('button');
     for (let button in b)
     {
-        b.disabled = true;
+        button.disabled = true;
     }
 }
 
@@ -115,7 +116,7 @@ async function insert(x)
         }
         if (x > value)ind = (ind << 1) + 1;
         else ind = ind << 1;
-        await delay(1000);
+        await delay(m);
         
     }
     if (ind >> 1)
@@ -222,7 +223,7 @@ async function postorder(ind)
     }
     
     console.log(ind);
-    await delay(3000);
+    await delay(m * 3);
     if (ind > 1)
     {
         edges[ind].setAttribute('stroke-dasharray', 'none');
@@ -262,7 +263,7 @@ async function inorder(ind)
         edges[ind].setAttribute('stroke-width', '2');
         
     }
-    await delay(3000);
+    await delay(m * 3);
     nodes[ind].setAttribute('fill', 'grey');
     await addTraversedNode(texts[ind].textContent);
     texts[ind].setAttribute('fill', 'black');
@@ -295,7 +296,7 @@ async function preorder(ind)
         edges[ind].setAttribute('stroke-width', '2');
         
     }
-    await delay(3000);
+    await delay(m * 3);
     let left = ind << 1;
     let right = left + 1;
     nodes[ind].setAttribute('fill', 'grey');
@@ -355,7 +356,7 @@ async function search(ind, value)
         return ;
     }
     nodes[ind].setAttribute('fill', exploreColor);
-    await delay(4000);
+    await delay(m * 4);
     nodes[ind].setAttribute('fill', 'grey');
     if (v > value)
     {
@@ -373,7 +374,7 @@ async function build(n)
         let x = parseInt(prompt());
         await insert(x);
         await reorder();
-        await delay(1000);
+        await delay(m);
     }
     
 }
@@ -404,7 +405,7 @@ async function balanceTree(first, last)
 
     }
     console.log(first, last);
-    await delay(1000);
+    await delay(m);
     let mid = (first + last) >> 1;
     let v = parseInt(traverserOrder.children[mid].firstChild.innerHTML);
     console.log(v);
@@ -414,4 +415,3 @@ async function balanceTree(first, last)
     
 }
 //build(n);
-for (let i = 46; i < 54; i ++)insert(i);
