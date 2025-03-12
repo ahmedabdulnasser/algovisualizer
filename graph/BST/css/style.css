@@ -14,3 +14,10 @@ main{
     display:flex;
     background-color: var(--gray-secondary);
 }
+#visit-order{
+    display : grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, auto));
+}
+#visit-order div{
+    border:1px solid red;
+}
