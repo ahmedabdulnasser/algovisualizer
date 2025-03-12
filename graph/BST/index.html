@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Binary Search Tree | Algorhythm</title>
     <link rel="shortcut icon" href="/assets/img/rubik.png" type="image/png" />
-    
+
     <link rel="shortcut icon" href="/assets/img/rubik.png" type="image/png" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/globals.css" />
-    <link rel="stylesheet" href="./css/home.css" />
-    <link rel="stylesheet" href="./css/nav.css" />
-    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/team.css" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -42,46 +43,38 @@
       <section class="info">
         <h2>Binary Sarch Tree</h2>
       </section>
-      
+
       <section id="previewArr"></section>
 
       <section id="user-input">
-        <input
-          id="size"
-          type="number"
-          placeholder="enter a number"
-        />
+        <input id="size" type="number" placeholder="enter a number" />
         <button id="render-btn" onclick="add()">insert</button>
       </section>
       <section id="search">
-        <input
-          id="search-input"
-          type="number"
-          placeholder="enter a number"
-        />
-        <button id="search-btn" onclick="disableButtons(); search(1); enableButtons()">search</button>
+        <input id="search-input" type="number" placeholder="enter a number" />
+        <button
+          id="search-btn"
+          onclick="disableButtons(); search(1); enableButtons()"
+        >
+          search
+        </button>
       </section>
-      
+
       <section id="controls">
         <button id="decSpeed"><<</button>
         <input id="sort-speed" type="text" disabled />
         <button id="incSpeed">>></button>
-        <button id="playBtn" onclick = "resume()">play</button>
+        <button id="playBtn" onclick="resume()">play</button>
         <button id="pauseBtn" onclick="stop()">pause</button>
-        <button id="preorder" onclick = "preorder(1)">preorder</button>
-        <button id="postorder" onclick = "postorder(1)">postorder</button>
-        <button onclick= "inorder(1)">inorder</button>
-        <button onclick = "clearEffects()">
-        reset graph </button>
-        <button onclick = "balanceTree(1)">balance the tree</button>
+        <button id="preorder" onclick="preorder(1)">preorder</button>
+        <button id="postorder" onclick="postorder(1)">postorder</button>
+        <button onclick="inorder(1)">inorder</button>
+        <button onclick="clearEffects()">reset graph</button>
+        <button onclick="balanceTree(1)">balance the tree</button>
       </section>
-      <section id = "algorithm">
-
-      </section>
-      <section id = "visit-order">
-
-      </section>
+      <section id="algorithm"></section>
+      <section id="visit-order"></section>
     </main>
-    <script src = "graph.js"></script>
+    <script src="graph.js"></script>
   </body>
 </html>
