@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/sorting.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <a id="navbar__logo" href="/">
+          <img src="/assets/img/rubik.png" alt="Logo Image" />
+          Algorhythm
+        </a>
+        <ul id="navbar__links">
+          <li><a href="/" class="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Team</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+        <a
+          href="https://github.com/ahmedabdulnasser/algovisualizer"
+          target="_blank"
+        >
+          <img
+            src="/assets/img/github.png"
+            alt="Source code on Github"
+            id="github-link"
+          />
+        </a>
+      </nav>
+    </header>
+    <main>
+      <div class="parent-grid">
+        <section class="log-section">
+          <h2>Algorithm Tracer</h2>
+          <div id="logs">
+            <span class="placeholder"><p>Logs go here.</p></span>
+          </div>
+        </section>
+
+        <div id="col2">
+          <section class="control-section">
+            <section id="user-input">
+              <input
+                id="size"
+                type="text"
+                placeholder="Number of n values, which will start from 0 to."
+              />
+              <button id="render-btn">Render</button>
+            </section>
+            <section id="controls">
+              <button id="decSpeed"><<</button>
+              <input id="sort-speed" type="text" disabled />
+              <button id="incSpeed">>></button>
+              <button id="playBtn">play</button>
+              <button id="pauseBtn">pause</button>
+            </section>
+          </section>
+          <div id="row2-div">
+            <h2>Numbers:</h2>
+            <div id="parent">
+              <span class="parent-placeholder">
+                Please specify the number N, which the algorithm will start from
+                0 to.
+              </span>
+            </div>
+            <h2>Primes:</h2>
+            <div id="primes_area">
+              <span class="parent-placeholder">
+                No primes to show for now.
+              </span>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="sieve.js"></script>
+    <script src="/js/nav.js"></script>
+  </body>
+</html>

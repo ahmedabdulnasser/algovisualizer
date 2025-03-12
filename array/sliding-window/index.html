@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sliding Window | Technique</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+
+        <link
+            rel="shortcut icon"
+            href="/assets/img/rubik.png"
+            type="image/png"
+        />
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/globals.css" />
+        <link rel="stylesheet" href="/css/home.css" />
+        <link rel="stylesheet" href="/css/nav.css" />
+        <link rel="stylesheet" href="/css/footer.css" />
+        <!-- <link rel="stylesheet" href="/css/sorting.css" /> -->
+        <link rel="stylesheet" href="/css/sw.css" />
+    </head>
+    <body>
+        <header>
+            <nav id="navbar">
+                <a id="navbar__logo" href="/">
+                    <img src="/assets/img/rubik.png" alt="Logo Image" />
+                    Algorhythm
+                </a>
+                <ul id="navbar__links">
+                    <li><a href="/" class="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Team</a></li>
+                    <li><a href="">Link</a></li>
+                </ul>
+                <a
+                    href="https://github.com/ahmedabdulnasser/algovisualizer"
+                    target="_blank"
+                >
+                    <img
+                        src="/assets/img/github.png"
+                        alt="Source code on Github"
+                        id="github-link"
+                    />
+                </a>
+            </nav>
+        </header>
+        <main>
+            <section class="info">
+                <h2>Sliding Window</h2>
+            </section>
+            <section id="previewArr"></section>
+            <section class="summtion">
+                <p id="currSum">Current Sum:</p>
+                <p id="maxSum">Max Sum:</p>
+            </section>
+            <section class="dod">
+                <section id="array-input" class="user-input">
+                    <input
+                        id="arr-input"
+                        type="text"
+                        placeholder="Comma-separated array values"
+                    />
+                    <button id="render-btn">Render</button>
+                    <span id="random-btn"
+                        ><i class="fas fa-dice" id="dice-icon"></i
+                    ></span>
+                </section>
+                <section id="window-size" class="user-input">
+                    <input
+                        id="window-size-input"
+                        type="text"
+                        placeholder="Window Size (Default: 3)"
+                    />
+                </section>
+
+                <section id="controls">
+                    <button id="decSpeed"><<</button>
+                    <span id="speedValue">1x</span>
+                    <button id="incSpeed">>></button>
+                    <button id="playBtn">play</button>
+                    <button id="pauseBtn">pause</button>
+                    <!-- <button id="prevBtn">prev</button>
+                    <button id="nextBtn">next</button> -->
+                </section>
+            </section>
+            <div class="popup">
+                <div class="popup-content">
+                    <h2>Max Sum</h2>
+                    <p id="result"></p>
+                    <button id="playAgainBtn">Restart</button>
+                </div>
+            </div>
+        </main>
+        <script type="module" src="/js/array/main.js"></script>
+    </body>
+</html>

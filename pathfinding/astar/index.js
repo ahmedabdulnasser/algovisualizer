@@ -62,6 +62,8 @@ class Main {
         this.resetButton.addEventListener('click', () => this.resetGrid());
         this.startButton.addEventListener('click', () => this.findPath());
 
+        this.popup_no_path = document.getElementById('popup');
+        this.popup_message = document.getElementById('popup-message');
         // window.addEventListener('resize', 
         //     () => this.paintComponent()
         // );
@@ -276,7 +278,8 @@ class Main {
 
     findPath() {
         if (!this.start || !this.end) {
-            alert("Please set both a start and an end node.");
+            this.popup_message.textContent = "Please select a start and end node!";
+            this.popup_no_path.style.display = "flex";
             return;
         }
 
@@ -350,7 +353,8 @@ class Main {
                     this.drawCosts(square);
                 }
             } else {
-                alert("No path found!");
+                this.popup_message.textContent = "No path found!";
+                this.popup_no_path.style.display = "flex";
             }
         };
     
