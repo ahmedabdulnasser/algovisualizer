@@ -1,68 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel = "stylesheet" href = "css/style.css">
-</head>
-<body>
-    
-    <div class="parent-grid">
-        <div id = "recommended_problems">
-            <div>
-            <h2>Solve Problems with this algorithm</h2>
-            <a href = "https://leetcode.com/problems/count-primes/description/">
-                Count Primes
-            </a>
-            <a href = "https://leetcode.com/problems/closest-prime-numbers-in-range/description/">
-                Twin Primes
-            </a>
-            </div>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/sorting.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <a id="navbar__logo" href="/">
+          <img src="/assets/img/rubik.png" alt="Logo Image" />
+          Algorhythm
+        </a>
+        <ul id="navbar__links">
+          <li><a href="/" class="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Team</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+        <a
+          href="https://github.com/ahmedabdulnasser/algovisualizer"
+          target="_blank"
+        >
+          <img
+            src="/assets/img/github.png"
+            alt="Source code on Github"
+            id="github-link"
+          />
+        </a>
+      </nav>
+    </header>
+    <main>
+      <div class="parent-grid">
+        <section class="log-section">
+          <h2>Algorithm Tracer</h2>
+          <div id="logs">
+            <span class="placeholder"><p>Logs go here.</p></span>
+          </div>
+        </section>
 
-        </div>
-        
-        <div id = "col2">
-        <div id = "buttons">
-            <button onclick="resume()">
-                <img src = "./images/resume.png">
-            </button>
-            <button onclick="stop()">
-                <img src = "./images/stop.png">
-            </button>
-            <button onclick="speedup()">
-                <img src = "./images/speedup.png">
-            </button>
-            <button onclick="speeddown()">
-                <img src = "./images/speeddown.png">
-            </button>
-            <button onclick="max()">
-                <img src = "./images/max.jpg">
-            </button>
-        </div>
-        <div id = "row2-div">
-                
-    <div id = "parent">
-    </div>
-    <div id = "primes_area">
-    </div>
+        <div id="col2">
+          <section class="control-section">
+            <section id="user-input">
+              <input
+                id="size"
+                type="text"
+                placeholder="Number of n values, which will start from 0 to."
+              />
+              <button id="render-btn">Render</button>
+            </section>
+            <section id="controls">
+              <button id="decSpeed"><<</button>
+              <input id="sort-speed" type="text" disabled />
+              <button id="incSpeed">>></button>
+              <button id="playBtn">play</button>
+              <button id="pauseBtn">pause</button>
+            </section>
+          </section>
+          <div id="row2-div">
+            <h2>Numbers:</h2>
+            <div id="parent"></div>
+            <h2>Primes:</h2>
+            <div id="primes_area">
+              <br />
             </div>
-            </div>
-            <div id = "third_column">
-                
-    <div id = "form">
-        <label>enter N </label>
-        <input id = "size" placeholder="n">
-        <button onclick = "play()" id = "ok">ok</button>
-    </div>
-    <div>
-        <button style = "width:10px; height:10px;" onclick = "closeLogs()" id = "cbtn">[x]</button>
-    <div id = "logs">
-    </div>
-            </div>
+          </div>
         </div>
-        </div>
-    
-    <script src = "sieve.js"></script>
-</body>
+      </div>
+    </main>
+    <script src="sieve.js"></script>
+    <script src="/js/nav.js"></script>
+  </body>
 </html>
