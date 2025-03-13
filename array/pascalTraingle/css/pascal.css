@@ -166,7 +166,7 @@
 
 #algorithm {
     flex: 1;
-    height: calc(100vh - 340px);
+    height: 50vh;
     overflow-y: auto;
     position: sticky;
     top: 120px;
@@ -198,4 +198,18 @@
 #algorithm div p:hover {
     /* transform: scale(1.05); */
     background-color: var(--purble);
+}
+sup {
+    font-family: inherit;
+    line-height: 0;
+    vertical-align: super;
+    display: inline;
+    color:blueviolet;
+}
+.main-select{
+    box-shadow: 0 4px 8px rgba(255, 7, 7, 0.852) !important;
+}
+
+.select, .consider{
+    box-shadow: 0 4px 8px cyan !important;
 }

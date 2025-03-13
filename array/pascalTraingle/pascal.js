@@ -75,6 +75,7 @@ async function draw(rows) {
       p.innerHTML = pascal[i][j];
       div.appendChild(p);
       p.classList.add("main-select");
+      console.log(p.classList);
       await delay(delayTime);
       if (j && i && j != i) {
         algorithm.childNodes[i - 1].childNodes[j - 1].classList.remove(
