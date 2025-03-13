@@ -65,7 +65,7 @@ An open-source algorithm visualizer developed for the **Information Technology I
    ```
 2. Navigate to the project directory and open `index.html` in a modern web browser:
    ```bash
-   cd algorhythm
+   cd algovisualizer
    open index.html  # Or use your browser's file explorer
    ```
 
