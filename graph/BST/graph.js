@@ -362,7 +362,7 @@ async function search(ind, value) {
   let v = parseInt(texts[ind].textContent);
   if (v == value) {
     nodes[ind].setAttribute("fill", "green");
-    alert("found");
+    // alert("found");
     return;
   }
   nodes[ind].setAttribute("fill", exploreColor);

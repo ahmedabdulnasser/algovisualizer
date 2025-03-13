@@ -13,7 +13,7 @@ circle {
 #visit-order {
   /* display: grid; */
   /* grid-template-columns: repeat(auto-fill, minmax(40px, auto)); */
-  margin: 5px;
+  margin: 20px;
   display: flex;
   gap: 10px;
   font-family: "Saira Condensed";
