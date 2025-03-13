@@ -61,7 +61,7 @@ An open-source algorithm visualizer developed for the **Information Technology I
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/[username]/algorhythm.git
+   git clone https://github.com/ahmedabdulnasser/algovisualizer.git
    ```
 2. Navigate to the project directory and open `index.html` in a modern web browser:
    ```bash
