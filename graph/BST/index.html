@@ -21,20 +21,44 @@
     <header>
       <nav id="navbar">
         <a id="navbar__logo" href="/">
-          <img src="./assets/img/rubik.png" alt="Logo Image" /> Algorhythm
+          <img src="/assets/img/rubik.png" alt="Logo Image" /> Algorhythm
         </a>
         <ul id="navbar__links">
           <li><a href="/" class="">Home</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Team</a></li>
-          <li><a href="">Link</a></li>
+          <li>
+            <a href="" class="">Sorting</a>
+            <div class="dropdown">
+              <a href="/sorting/bubble">Bubble Sort</a>
+              <a href="/sorting/selection/">Selection Sort</a>
+              <a href="/sorting/quick/">Quick Sort</a>
+            </div>
+          </li>
+          <li>
+            <a href="" class="">Array</a>
+            <div class="dropdown">
+              <a href="/array/linear-search/">Linear Search</a>
+              <a href="/array/binary-search/">Binary Search</a>
+              <a href="/array/sliding-window/">Sliding Window</a>
+              <a href="/array/prefix-sum/">Prefix Sum</a>
+              <a href="/array/sieve/">Sieve of Eratosthenes</a>
+              <a href="/array/pascalTraingle/">Pascal Triangle</a>
+            </div>
+          </li>
+          <li>
+            <a href="" class="active">Pathfinding & Graph</a>
+            <div class="dropdown">
+              <a href="/pathfinding/astar/">A*</a>
+              <a href="/graph/BST/">Binary Search Tree</a>
+            </div>
+          </li>
+          <li><a href="/team">Team</a></li>
         </ul>
         <a
           href="https://github.com/ahmedabdulnasser/algovisualizer"
           target="_blank"
         >
           <img
-            src="./assets/img/github.png"
+            src="/assets/img/github.png"
             alt="Source code on Github"
             id="github-link"
           />
@@ -74,8 +98,12 @@
         <button id="incSpeed">>></button>
         <button id="playBtn" onclick="resume()">Play</button>
         <button id="pauseBtn" onclick="stop()">Pause</button>
-        <button id="preorder" onclick="clearTrace();preorder(1)">Preorder</button>
-        <button id="postorder" onclick="clearTrace();postorder(1)">Postorder</button>
+        <button id="preorder" onclick="clearTrace();preorder(1)">
+          Preorder
+        </button>
+        <button id="postorder" onclick="clearTrace();postorder(1)">
+          Postorder
+        </button>
         <button onclick="clearTrace(); inorder(1)">Inorder</button>
         <button onclick="clearEffects()">Reset Graph Colors</button>
         <button onclick="removeAll()">Empty Graph</button>
