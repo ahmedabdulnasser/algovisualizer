@@ -52,3 +52,19 @@ button:hover {
   padding: 5px;
   font-family: "Saira Condensed";
 }
+#array0, #answer0{
+display:flex;
+flex-direction: row;
+gap: 10px;
+}
+#array0 div, #answer0 div{
+  border: 1px solid red;
+}
+#stack{
+  display:flex;
+  flex-direction: column;
+  gap : 10px;
+}
+#stack div{
+  border: 1px solid red;
+}
