@@ -89,3 +89,43 @@ img#github-link:hover {
   font-weight: 400;
   font-style: italic;
 }
+/* dropdown */
+/* Dropdown Container */
+nav ul#navbar__links li {
+  position: relative;
+  list-style: none;
+}
+
+nav ul#navbar__links li .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--gray-secondary);
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  padding: 10px 0;
+  border-radius: 6px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Show Dropdown on Hover */
+nav ul#navbar__links li:hover .dropdown {
+  display: flex;
+}
+
+/* Dropdown Links */
+nav ul#navbar__links li .dropdown a {
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.879);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  opacity: 60%;
+  white-space: nowrap;
+}
+
+nav ul#navbar__links li .dropdown a:hover {
+  opacity: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
