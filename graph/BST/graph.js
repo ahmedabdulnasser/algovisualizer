@@ -243,11 +243,9 @@ async function insert(x) {
   await reorder();
 }
 function setTrace(text) {
-  if (traverserOrder)
-  {
-    traverserOrder.innerHTML = '';
-    if (text)
-    addTraversedNode(text);
+  if (traverserOrder) {
+    traverserOrder.innerHTML = "";
+    if (text) addTraversedNode(text);
   }
 }
 async function postorder(ind) {
@@ -408,22 +406,19 @@ async function balanceTree(first, last) {
     last = divs.length;
   }
   let mid = (first + last) >> 1;
-  traverserOrder.children[mid].firstChild.style.backgroundColor = 'red';
+  traverserOrder.children[mid].firstChild.style.backgroundColor = "red";
   console.log(first, last);
   await delay(delayTime);
   let v = parseInt(traverserOrder.children[mid].firstChild.innerHTML);
-  traverserOrder.children[mid].firstChild.style.opacity = '0';
-  
-  if (mid == 1)console.log('node ' + v);
+  traverserOrder.children[mid].firstChild.style.opacity = "0";
+
+  if (mid == 1) console.log("node " + v);
   await insert(v);
   await balanceTree(first, mid);
   await balanceTree(mid + 1, last);
 }
-function debug()
-{
-    
+function debug() {
   let lst = [80, 60, 40, 20, 70, 30, 50];
-  for (let j of lst)insert(j);
-
+  for (let j of lst) insert(j);
 }
 //build(n);
