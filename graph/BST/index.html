@@ -74,17 +74,16 @@
         <button id="incSpeed">>></button>
         <button id="playBtn" onclick="resume()">Play</button>
         <button id="pauseBtn" onclick="stop()">Pause</button>
-        <button id="preorder" onclick="preorder(1)">Preorder</button>
-        <button id="postorder" onclick="postorder(1)">Postorder</button>
-        <button onclick="inorder(1)">Inorder</button>
+        <button id="preorder" onclick="clearTrace();preorder(1)">Preorder</button>
+        <button id="postorder" onclick="clearTrace();postorder(1)">Postorder</button>
+        <button onclick="clearTrace(); inorder(1)">Inorder</button>
         <button onclick="clearEffects()">Reset Graph Colors</button>
         <button onclick="removeAll()">Empty Graph</button>
-        <button onclick="balanceTree(1)">Balance Tree</button>
+        <button onclick="clearTrace();balanceTree(1)">Balance Tree</button>
       </section>
       <section id="algorithm"></section>
       <section id="visit-order"></section>
     </main>
     <script src="graph.js"></script>
-    <script src="/js/nav.js"></script>
   </body>
 </html>

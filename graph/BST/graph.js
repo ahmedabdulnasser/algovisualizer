@@ -25,6 +25,7 @@ var defaultColor = "rgba(41, 128, 185, 0.8)";
 var exploreColor = "rgba(192, 57, 43, 1)";
 var pause = 0;
 var traverserOrder = document.getElementById("visit-order");
+traverserOrder.innerHTML = "";
 let delayTime = 750;
 
 playBtn.addEventListener("click", () => {
@@ -241,7 +242,11 @@ async function insert(x) {
   await svgExtend();
   await reorder();
 }
-
+function clearTrace()
+{
+  if (traverserOrder)
+  traverserOrder.innerHTML = ""; 
+}
 async function postorder(ind) {
   let left = ind << 1;
   let right = left + 1;
@@ -249,10 +254,6 @@ async function postorder(ind) {
   if (nodes[right] !== undefined) await postorder(right);
   nodes[ind].setAttribute("fill", exploreColor);
   texts[ind].setAttribute("fill", "#FFD700");
-  if (ind == 1) {
-    traverserOrder.innerHTML = "";
-    addTraversedNode("Post-order Traverse ( left - right - root ) ");
-  }
   if (ind > 1) {
     edges[ind].setAttribute("stroke-dasharray", "7,5");
     edges[ind].setAttribute("stroke", "green");
@@ -260,6 +261,8 @@ async function postorder(ind) {
   }
 
   console.log(ind);
+  
+  await addTraversedNode(texts[ind].textContent);
   await delay(delayTime * 3);
   if (ind > 1) {
     edges[ind].setAttribute("stroke-dasharray", "none");
@@ -284,10 +287,6 @@ async function inorder(ind) {
   if (nodes[left]) await inorder(left);
   nodes[ind].setAttribute("fill", exploreColor);
   texts[ind].setAttribute("fill", "#FFD700");
-  if (ind == 1) {
-    traverserOrder.innerHTML = "";
-    addTraversedNode("In-order Traverse (root - left - right)");
-  }
   if (ind > 1) {
     edges[ind].setAttribute("stroke-dasharray", "7,5");
     edges[ind].setAttribute("stroke", "green");
@@ -307,6 +306,7 @@ async function inorder(ind) {
 }
 
 async function preorder(ind) {
+    console.log("hell no");
   console.log(texts[ind].textContent);
   nodes[ind].setAttribute("fill", exploreColor);
   texts[ind].setAttribute("fill", "#FFD700");
@@ -399,7 +399,6 @@ async function balanceTree(first, last) {
   if (last != undefined && first >= last) return;
   if (!last) {
     console.log(last);
-    console.log("HELL");
     await inorder(1);
     await removeAll();
 
@@ -415,5 +414,6 @@ async function balanceTree(first, last) {
   await balanceTree(first, mid);
   await balanceTree(mid + 1, last);
 }
-
+let lst = [80, 60, 40, 20, 70, 30, 50];
+for (let j of lst)insert(j);
 //build(n);
