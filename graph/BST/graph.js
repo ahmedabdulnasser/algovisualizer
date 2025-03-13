@@ -242,10 +242,8 @@ async function insert(x) {
   await svgExtend();
   await reorder();
 }
-function clearTrace()
-{
-  if (traverserOrder)
-  traverserOrder.innerHTML = ""; 
+function clearTrace() {
+  if (traverserOrder) traverserOrder.innerHTML = "";
 }
 async function postorder(ind) {
   let left = ind << 1;
@@ -255,13 +253,15 @@ async function postorder(ind) {
   nodes[ind].setAttribute("fill", exploreColor);
   texts[ind].setAttribute("fill", "#FFD700");
   if (ind > 1) {
+    traverserOrder.innerHTML = "";
+    addTraversedNode("Post-order Traverse (root - left - right): ");
     edges[ind].setAttribute("stroke-dasharray", "7,5");
     edges[ind].setAttribute("stroke", "green");
     edges[ind].setAttribute("stroke-width", "2");
   }
 
-  console.log(ind);
-  
+  // console.log(ind);
+
   await addTraversedNode(texts[ind].textContent);
   await delay(delayTime * 3);
   if (ind > 1) {
@@ -288,6 +288,8 @@ async function inorder(ind) {
   nodes[ind].setAttribute("fill", exploreColor);
   texts[ind].setAttribute("fill", "#FFD700");
   if (ind > 1) {
+    traverserOrder.innerHTML = "";
+    addTraversedNode("In-order Traverse (root - left - right): ");
     edges[ind].setAttribute("stroke-dasharray", "7,5");
     edges[ind].setAttribute("stroke", "green");
     edges[ind].setAttribute("stroke-width", "2");
@@ -306,13 +308,12 @@ async function inorder(ind) {
 }
 
 async function preorder(ind) {
-    console.log("hell no");
-  console.log(texts[ind].textContent);
+  // console.log(texts[ind].textContent);
   nodes[ind].setAttribute("fill", exploreColor);
   texts[ind].setAttribute("fill", "#FFD700");
   if (ind == 1) {
     traverserOrder.innerHTML = "";
-    addTraversedNode("Pre-order Traverse (root - left - right)");
+    addTraversedNode("Pre-order Traverse (root - left - right): ");
   }
   if (ind > 1) {
     edges[ind].setAttribute("stroke-dasharray", "7,5");
@@ -414,6 +415,6 @@ async function balanceTree(first, last) {
   await balanceTree(first, mid);
   await balanceTree(mid + 1, last);
 }
-let lst = [80, 60, 40, 20, 70, 30, 50];
-for (let j of lst)insert(j);
+// let lst = [80, 60, 40, 20, 70, 30, 50];
+// for (let j of lst)insert(j);
 //build(n);
