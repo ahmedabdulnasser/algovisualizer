@@ -1,27 +1,201 @@
-#algorithm{
-    display: grid;
-    height: 80%;
-    grid-template-rows: repeat(auto-fill, minmax(40px, auto));
+.info {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: "Geo", sans-serif;
+    font-size: 3rem;
 }
-#algorithm div{
-    display: grid;
-    width: 80%;
-    grid-template-columns: repeat(auto-fill, minmax(40px, auto));
-}
-#algorithm div  p{
-border:1px solid red;
-}
-.select{
-    background-color: blanchedalmond;
 
+.content-container {
+    display: flex;
+    gap: 40px;
 }
-.main-select{
-    background-color: red;
+
+.settings {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
-.gold-span{
-    color:gold;
+
+#user-input {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
-.consider{
-    color:goldenrod;
-    border:solid 1px blueviolet;
+
+#user-input input {
+    border: 2px solid var(--gray-secondary);
+    border-radius: 8px;
+    outline: none;
+    height: 30px;
+    width: 200px;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 5px;
+    background-color: var(--gray-secondary);
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#user-input button {
+    width: 100px;
+    height: 40px;
+    background-color: var(--gray-secondary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-family: "Geo", sans-serif;
+    font-size: 1.25rem;
+    transition: all 0.3s ease-in-out;
+}
+
+#user-input button:hover {
+    background-color: var(--purble);
+    transform: scale(1.05);
+}
+
+#bolynomial {
+    background-color: var(--gray-secondary);
+    padding: 20px;
+    border-radius: 16px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+#bolynomial:hover {
+    transform: scale(1.02);
+}
+
+#bolynomial h2 {
+    font-family: "Geo", sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.boly-child {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#bolynomial input {
+    border: 2px solid var(--gray-main);
+    border-radius: 8px;
+    outline: none;
+    height: 30px;
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px;
+    background-color: var(--gray-main);
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+#bolynomial button {
+    width: 100%;
+    height: 40px;
+    background-color: var(--gray-main);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-family: "Geo", sans-serif;
+    font-size: 1.25rem;
+    transition: all 0.3s ease-in-out;
+}
+
+#bolynomial button:hover {
+    background-color: var(--purble);
+    transform: scale(1.05);
+}
+
+#result {
+    font-family: "Geo", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: rgb(19, 201, 19);
+}
+
+/* Controls Section */
+#controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#controls button {
+    width: 60px;
+    height: 40px;
+    background-color: var(--gray-secondary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-family: "Geo", sans-serif;
+    font-size: 1.25rem;
+    transition: all 0.3s ease-in-out;
+}
+
+#controls button:hover {
+    background-color: var(--purble);
+    transform: scale(1.05);
+}
+
+#sort-speed {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    font-size: 1rem;
+    font-family: "Geo", sans-serif;
+    background-color: var(--gray-secondary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+#algorithm {
+    flex: 1;
+    height: calc(100vh - 340px);
+    overflow-y: auto;
+    position: sticky;
+    top: 120px;
+    padding: 20px;
+    background-color: var(--gray-secondary);
+    border-radius: 16px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+#algorithm div {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#algorithm div p {
+    border: 2px solid var(--gray-main);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    font-family: "Geo", sans-serif;
+    font-size: 1.2rem;
+    background-color: var(--gray-main);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+#algorithm div p:hover {
+    /* transform: scale(1.05); */
+    background-color: var(--purble);
 }
