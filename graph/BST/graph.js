@@ -419,6 +419,11 @@ async function balanceTree(first, last) {
   await balanceTree(first, mid);
   await balanceTree(mid + 1, last);
 }
- let lst = [80, 60, 40, 20, 70, 30, 50];
-for (let j of lst)insert(j);
+function debug()
+{
+    
+  let lst = [80, 60, 40, 20, 70, 30, 50];
+  for (let j of lst)insert(j);
+
+}
 //build(n);
