@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/css/nav.css" />
     <link rel="stylesheet" href="/css/footer.css" />
-    <link rel="stylesheet" href="/css/team.css" />
+    <link rel="stylesheet" href="/css/sorting.css" />
+
     <link rel="stylesheet" href="./css/style.css" />
+    <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
   </head>
   <body>
     <header>
@@ -41,22 +43,28 @@
     </header>
     <main>
       <section class="info">
-        <h2>Binary Sarch Tree</h2>
+        <h2>Binary Search Tree</h2>
       </section>
-
-      <section id="previewArr"></section>
 
       <section id="user-input">
-        <input id="size" type="number" placeholder="enter a number" />
-        <button id="render-btn" onclick="add()">insert</button>
+        <input
+          id="size"
+          type="number"
+          placeholder="Value to insert into the node."
+        />
+        <button id="render-btn" onclick="add()">Insert Node</button>
       </section>
       <section id="search">
-        <input id="search-input" type="number" placeholder="enter a number" />
+        <input
+          id="search-input"
+          type="number"
+          placeholder="Target to search."
+        />
         <button
           id="search-btn"
           onclick="disableButtons(); search(1); enableButtons()"
         >
-          search
+          Search Nodes
         </button>
       </section>
 
@@ -64,18 +72,19 @@
         <button id="decSpeed"><<</button>
         <input id="sort-speed" type="text" disabled />
         <button id="incSpeed">>></button>
-        <button id="playBtn" onclick="resume()">play</button>
-        <button id="pauseBtn" onclick="stop()">pause</button>
-        <button id="preorder" onclick="preorder(1)">preorder</button>
-        <button id="postorder" onclick="postorder(1)">postorder</button>
-        <button onclick="inorder(1)">inorder</button>
-        <button onclick="clearEffects()">reset graph colors</button>
-        <button onclick="removeAll()">delete graph</button>
-        <button onclick="balanceTree(1)">balance the tree</button>
+        <button id="playBtn" onclick="resume()">Play</button>
+        <button id="pauseBtn" onclick="stop()">Pause</button>
+        <button id="preorder" onclick="preorder(1)">Preorder</button>
+        <button id="postorder" onclick="postorder(1)">Postorder</button>
+        <button onclick="inorder(1)">Inorder</button>
+        <button onclick="clearEffects()">Reset Graph Colors</button>
+        <button onclick="removeAll()">Empty Graph</button>
+        <button onclick="balanceTree(1)">Balance Tree</button>
       </section>
       <section id="algorithm"></section>
       <section id="visit-order"></section>
     </main>
     <script src="graph.js"></script>
+    <script src="/js/nav.js"></script>
   </body>
 </html>
