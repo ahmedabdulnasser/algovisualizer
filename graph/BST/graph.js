@@ -407,15 +407,18 @@ async function balanceTree(first, last) {
     var divs = traverserOrder.children;
     last = divs.length;
   }
+  let mid = (first + last) >> 1;
+  traverserOrder.children[mid].firstChild.style.backgroundColor = 'red';
   console.log(first, last);
   await delay(delayTime);
-  let mid = (first + last) >> 1;
   let v = parseInt(traverserOrder.children[mid].firstChild.innerHTML);
+  traverserOrder.children[mid].firstChild.style.opacity = '0';
+  
   if (mid == 1)console.log('node ' + v);
   await insert(v);
   await balanceTree(first, mid);
   await balanceTree(mid + 1, last);
 }
- //let lst = [80, 60, 40, 20, 70, 30, 50];
-// for (let j of lst)insert(j);
+ let lst = [80, 60, 40, 20, 70, 30, 50];
+for (let j of lst)insert(j);
 //build(n);
