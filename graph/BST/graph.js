@@ -246,6 +246,7 @@ function setTrace(text) {
   if (traverserOrder)
   {
     traverserOrder.innerHTML = '';
+    if (text)
     addTraversedNode(text);
   }
 }
@@ -410,7 +411,7 @@ async function balanceTree(first, last) {
   await delay(delayTime);
   let mid = (first + last) >> 1;
   let v = parseInt(traverserOrder.children[mid].firstChild.innerHTML);
-  console.log(v);
+  if (mid == 1)console.log('node ' + v);
   await insert(v);
   await balanceTree(first, mid);
   await balanceTree(mid + 1, last);
