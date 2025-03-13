@@ -1,47 +1,104 @@
 # Algorhythm
 
-## Visualize algorithms & data structures step-by-step
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow) ![License](https://img.shields.io/badge/License-MIT-blue) ![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen)
+
+**Visualize Algorithms & Data Structures Step-by-Step**
+
+---
+
+## Table of Contents
+- [Description](#description)
+- [Key Features](#key-features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgments)
+
+---
 
 ## Description
 
-An open-source algorithm visualizer built for ITI (Information Technology Institute) - Alexandria, Open Source Application Development Department, Intake 45. This project provides an interactive way to visualize various algorithms, making it easier to understand their behavior and efficiency.
+An open-source algorithm visualizer developed for the **Information Technology Institute (ITI) Alexandria**, Open Source Application Development Track, Intake 45. This project offers an interactive platform to visualize and understand the mechanics of fundamental algorithms and data structures, enhancing learning through step-by-step execution.
+
+---
+
+## Key Features
+
+### Sorting Algorithms
+- **Bubble Sort:** Visualize pairwise comparisons and swaps to sort elements in ascending/descending order.
+- **Selection Sort:** Observe the selection of the smallest element and its placement in the sorted subarray.
+- **Quick Sort:** Track the divide-and-conquer approach with pivot partitioning for efficient sorting.
+
+### Searching Algorithms
+- **Linear Search:** Follow sequential checks to locate a target element in an unsorted array.
+- **Binary Search:** Explore the divide-and-conquer strategy in a sorted array with logarithmic time complexity.
+
+### Pathfinding Algorithms
+- **A* Search:** Discover optimal paths using heuristic-driven graph traversal between start and end nodes.
+
+### Data Structures
+- **Binary Search Tree (BST):** Visualize insertion, deletion, and search operations in a self-balancing tree structure.
+
+### Mathematical Algorithms
+- **Sieve of Eratosthenes:** Step through prime number identification by iteratively eliminating multiples.
+- **Pascal's Triangle:** Generate and explore binomial coefficients in a triangular array format.
+
+### Algorithmic Techniques
+- **Sliding Window:** Analyze efficient subarray/substring computations with a dynamic window size.
+- **Prefix Sum:** Precompute cumulative sums to enable constant-time range sum queries.
+
+---
+
+## Technologies Used
+- **JavaScript (ES6):** Core logic for algorithm visualization and interactivity.
+- **HTML5:** Structure and layout of the web interface.
+- **CSS3:** Styling, animations, and responsive design.
+
+---
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/[username]/algorhythm.git
+   ```
+2. Navigate to the project directory and open `index.html` in a modern web browser:
+   ```bash
+   cd algorhythm
+   open index.html  # Or use your browser's file explorer
+   ```
+
+---
+
+## Contributing
+Contributions are welcome! Please follow these steps:
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/your-feature`).
+3. Commit your changes (`git commit -m 'Add your feature'`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a Pull Request.
+
+For major changes, please open an issue first to discuss proposed improvements.
+
+---
+
+## License
+This project is licensed under the [MIT License](LICENSE).
+
+---
 
 ## Authors
-
 - **Ahmed Abdelnasser**
 - **Omar Abdellatif**
 - **Ahmed Ezzat**
 - **Abdelrahman Sherif**
 
-## Features
-
-- **Sorting Algorithms:**
-  - **Bubble Sort:** A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass-through process is repeated until the list is sorted.
-  - **Selection Sort:** A comparison-based sorting algorithm that repeatedly selects the smallest element from the unsorted portion of the array and swaps it with the first unsorted element.
-- **Pathfinding Algorithms:**
-  - **A\* Search:** An informed search algorithm used for pathfinding and graph traversal. It finds the shortest path from a starting node to a target node using heuristics to optimize the search.
-- **Searching Algorithms:**
-  - **Linear Search:** A simple search algorithm that checks each element in a list sequentially until the target element is found or the list ends.
-  - **Binary Search:** A more efficient search algorithm that works on sorted arrays by repeatedly dividing the search interval in half until the target value is found.
-- **Other Algorithms:**
-  - **Prefix Sum:** A technique that precomputes the cumulative sum of an array to allow efficient range sum queries in constant time.
-
-## Technologies Used
-
-This project is built using the following technologies:
-
-- **JavaScript (ES6):** Provides the core logic and interactivity.
-- **HTML:** Structures the application interface.
-- **CSS:** Styles and enhances the visual representation of the algorithms.
-
-## Contributing
-
-Contributions are welcome! If you would like to add features or fix issues, feel free to submit a pull request.
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
+---
 
 ## Acknowledgments
+Developed as part of the **ITI Open Source Application Development Track, Intake 45**, under the supervision of:
+- **Eng. Arwa Osama**
+- **Eng. Noha Salah**
 
-This project was developed as part of ITI (Information Technology Institute) - Alexandria, Open Source Application Development Department, Intake 45, for the ES6 project supervised by **Eng. Arwa Osama** & **Eng. Noha Salah**.
+Special thanks to the ITI Alexandria team for their guidance and support.
