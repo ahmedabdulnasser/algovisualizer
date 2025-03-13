@@ -36,7 +36,7 @@ An open-source algorithm visualizer developed for the **Information Technology I
 - **Binary Search:** Explore the divide-and-conquer strategy in a sorted array with logarithmic time complexity.
 
 ### Pathfinding Algorithms
-- **A* Search:** Discover optimal paths using heuristic-driven graph traversal between start and end nodes.
+- **A\* Search:** Discover optimal paths using heuristic-driven graph traversal between start and end nodes.
 
 ### Data Structures
 - **Binary Search Tree (BST):** Visualize insertion, deletion, and search operations in a self-balancing tree structure.
