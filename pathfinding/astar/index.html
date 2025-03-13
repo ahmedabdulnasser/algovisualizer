@@ -21,9 +21,34 @@
         <img src="/assets/img/rubik.png" alt="Logo Image" /> Algorhythm
       </a>
       <ul id="navbar__links">
-        <li><a href="">Home</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Team</a></li>
+        <li><a href="/" class="">Home</a></li>
+        <li>
+          <a href="" class="">Sorting</a>
+          <div class="dropdown">
+            <a href="/sorting/bubble">Bubble Sort</a>
+            <a href="/sorting/selection/">Selection Sort</a>
+            <a href="/sorting/quick/">Quick Sort</a>
+          </div>
+        </li>
+        <li>
+          <a href="" class="">Array</a>
+          <div class="dropdown">
+            <a href="/array/linear-search/">Linear Search</a>
+            <a href="/array/binary-search/">Binary Search</a>
+            <a href="/array/sliding-window/">Sliding Window</a>
+            <a href="/array/prefix-sum/">Prefix Sum</a>
+            <a href="/array/sieve/">Sieve of Eratosthenes</a>
+            <a href="/array/pascalTraingle/">Pascal Triangle</a>
+          </div>
+        </li>
+        <li>
+          <a href="" class="active">Pathfinding & Graph</a>
+          <div class="dropdown">
+            <a href="/pathfinding/astar/">A*</a>
+            <a href="/graph/BST/">Binary Search Tree</a>
+          </div>
+        </li>
+        <li><a href="/team">Team</a></li>
       </ul>
       <a
         href="https://github.com/ahmedabdulnasser/algovisualizer"
@@ -77,20 +102,35 @@
         <div class="controls_col">
           <h3>Controls</h3>
           <ul>
-              <li><strong>Left Click + Drag</strong>: Draw walls (The <span style="color: black;">black</span> blocks).</li>
-              <li><strong>Right Click + Drag</strong>: Erase walls</li>
-              <li><strong>S + Left Click</strong>: Set <span style="color: blue;">start</span> node.</li>
-              <li><strong>E + Left Click</strong>: Set <span style="color: red;">end</span> node.</li>
-              <li><strong>S + Right Click</strong>: remove <span style="color: blue;">start</span> node.</li>
-              <li><strong>E + Right Click</strong>: remove <span style="color: red;">end</span> node.</li>
-              <li><strong>Reset Button</strong>: Clear the grid.</li>
+            <li>
+              <strong>Left Click + Drag</strong>: Draw walls (The
+              <span style="color: black">black</span> blocks).
+            </li>
+            <li><strong>Right Click + Drag</strong>: Erase walls</li>
+            <li>
+              <strong>S + Left Click</strong>: Set
+              <span style="color: blue">start</span> node.
+            </li>
+            <li>
+              <strong>E + Left Click</strong>: Set
+              <span style="color: red">end</span> node.
+            </li>
+            <li>
+              <strong>S + Right Click</strong>: remove
+              <span style="color: blue">start</span> node.
+            </li>
+            <li>
+              <strong>E + Right Click</strong>: remove
+              <span style="color: red">end</span> node.
+            </li>
+            <li><strong>Reset Button</strong>: Clear the grid.</li>
           </ul>
         </div>
       </div>
       <div class="popup" id="popup">
         <div class="popup-content">
-            <p id="popup-message"></p>
-            <button id="close-popup">Close</button>
+          <p id="popup-message"></p>
+          <button id="close-popup">Close</button>
         </div>
       </div>
     </main>

@@ -1,19 +1,51 @@
 footer {
   background-color: var(--gray-secondary);
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   border-radius: 8px;
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-footer .footer__container {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(3, 1fr);
-  /* place-items: center; */
-  justify-items: center;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  cursor: default;
 }
+
+footer .footer__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for the fun fact list container */
+footer .footer__container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: "Saira Condensed";
+  font-size: 1.25rem;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#fun-fact-text {
+  width: auto;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+#fun-fact-text:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 footer .footer__container h2 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   font-family: "Geo";
@@ -21,6 +53,7 @@ footer .footer__container h2 {
   position: relative;
   margin-bottom: 20px;
 }
+
 footer .footer__container h2::after {
   content: "";
   background-color: var(--red);
@@ -32,17 +65,17 @@ footer .footer__container h2::after {
   border-radius: 2px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
-footer .footer__container ul {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  font-family: "Saira Condensed";
-  font-size: 1.25rem;
-}
+
 footer .footer__container a {
   color: gray;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
+
+footer .footer__container a:hover {
+  color: var(--red);
+}
+
 .copyright {
   width: 100%;
   display: flex;
@@ -52,6 +85,7 @@ footer .footer__container a {
   font-family: "Geo";
   font-size: 1.5rem;
 }
+
 .copyright-comp {
   color: var(--red);
 }

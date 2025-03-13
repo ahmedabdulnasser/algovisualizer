@@ -21,9 +21,34 @@
           <img src="/assets/img/rubik.png" alt="Logo Image" /> Algorhythm
         </a>
         <ul id="navbar__links">
-          <li><a href="" class="active">Home</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Team</a></li>
+          <li><a href="/" class="">Home</a></li>
+          <li>
+            <a href="" class="">Sorting</a>
+            <div class="dropdown">
+              <a href="/sorting/bubble">Bubble Sort</a>
+              <a href="/sorting/selection/">Selection Sort</a>
+              <a href="/sorting/quick/">Quick Sort</a>
+            </div>
+          </li>
+          <li>
+            <a href="" class="">Array</a>
+            <div class="dropdown">
+              <a href="/array/linear-search/">Linear Search</a>
+              <a href="/array/binary-search/">Binary Search</a>
+              <a href="/array/sliding-window/">Sliding Window</a>
+              <a href="/array/prefix-sum/">Prefix Sum</a>
+              <a href="/array/sieve/">Sieve of Eratosthenes</a>
+              <a href="/array/pascalTraingle/">Pascal Triangle</a>
+            </div>
+          </li>
+          <li>
+            <a href="" class="">Pathfinding & Graph</a>
+            <div class="dropdown">
+              <a href="/pathfinding/astar/">A*</a>
+              <a href="/graph/BST/">Binary Search Tree</a>
+            </div>
+          </li>
+          <li><a href="/team" class="active">Team</a></li>
         </ul>
         <a
           href="https://github.com/ahmedabdulnasser/algovisualizer"
@@ -99,26 +124,9 @@
 
     <footer>
       <section class="footer__container">
-        <ul class="footer__links">
-          <h2>Links</h2>
-          <li><a href="">Link</a></li>
-          <li><a href="">Link</a></li>
-          <li><a href="">Link</a></li>
-        </ul>
-
-        <ul class="footer__services">
-          <h2>Services</h2>
-
-          <li><a href="">Link</a></li>
-          <li><a href="">Link</a></li>
-          <li><a href="">Link</a></li>
-        </ul>
-
-        <ul class="footer__links">
-          <h2>Follow</h2>
-          <li><a href="">Link</a></li>
-          <li><a href="">Link</a></li>
-          <li><a href="">Link</a></li>
+        <ul>
+          <h2>Algorithmic Fact</h2>
+          <p id="fun-fact-text"></p>
         </ul>
       </section>
       <span class="copyright"
@@ -129,5 +137,6 @@
       >
     </footer>
     <script src="/js/nav.js"></script>
+    <script src="/js/footer.js"></script>
   </body>
 </html>

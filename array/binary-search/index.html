@@ -1,97 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Binary Search</title>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary Search</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
-        <link
-            rel="shortcut icon"
-            href="../../assets/img/rubik.png"
-            type="image/png"
-        />
-        <link rel="stylesheet" href="/css/reset.css" />
-        <link rel="stylesheet" href="/css/globals.css" />
-        <link rel="stylesheet" href="/css/home.css" />
-        <link rel="stylesheet" href="/css/nav.css" />
-        <link rel="stylesheet" href="/css/footer.css" />
-        <link rel="stylesheet" href="/css/sw.css" />
-    </head>
-    <body>
-        <header>
-            <nav id="navbar">
-                <a id="navbar__logo" href="/">
-                    <img src="/assets/img/rubik.png" alt="Logo Image" />
-                    Algorhythm
-                </a>
-                <ul id="navbar__links">
-                    <li><a href="/" class="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Team</a></li>
-                    <li><a href="">Link</a></li>
-                </ul>
-                <a
-                    href="https://github.com/ahmedabdulnasser/algovisualizer"
-                    target="_blank"
-                >
-                    <img
-                        src="/assets/img/github.png"
-                        alt="Source code on Github"
-                        id="github-link"
-                    />
-                </a>
-            </nav>
-        </header>
-        <main>
-            <section class="info">
-                <h2>Binary Search</h2>
-            </section>
-            <section id="previewArr"></section>
-            <section class="summtion">
-                <p id="currElement">Mid:</p>
-                <p id="targetValue">Target:</p>
-            </section>
-            <section class="dod">
-                <section id="array-input" class="user-input">
-                    <input
-                        id="arr-input"
-                        type="text"
-                        placeholder="Comma-separated array values"
-                    />
-                    <button id="render-btn">Render</button>
-                    <span id="random-btn"
-                        ><i class="fas fa-dice" id="dice-icon"></i
-                    ></span>
-                </section>
-                <section id="target-input" class="user-input">
-                    <input
-                        id="target-input-field"
-                        type="text"
-                        placeholder="Enter target number"
-                    />
-                </section>
-
-                <section id="controls">
-                    <button id="decSpeed"><<</button>
-                    <span id="speedValue">1x</span>
-                    <button id="incSpeed">>></button>
-                    <button id="playBtn">play</button>
-                    <button id="pauseBtn">pause</button>
-                </section>
-            </section>
-            <div class="popup">
-                <div class="popup-content">
-                    <h2>Result</h2>
-                    <p id="result"></p>
-                    <button id="playAgainBtn">Restart</button>
-                </div>
+    <link
+      rel="shortcut icon"
+      href="../../assets/img/rubik.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/sw.css" />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <a id="navbar__logo" href="/">
+          <img src="/assets/img/rubik.png" alt="Logo Image" /> Algorhythm
+        </a>
+        <ul id="navbar__links">
+          <li><a href="/" class="">Home</a></li>
+          <li>
+            <a href="" class="">Sorting</a>
+            <div class="dropdown">
+              <a href="/sorting/bubble">Bubble Sort</a>
+              <a href="/sorting/selection/">Selection Sort</a>
+              <a href="/sorting/quick/">Quick Sort</a>
             </div>
-        </main>
-        <script type="module" src="/js/array/main.js"></script>
-        <!-- <script src="./binarySearch.js"></script> -->
-    </body>
+          </li>
+          <li>
+            <a href="" class="active">Array</a>
+            <div class="dropdown">
+              <a href="/array/linear-search/">Linear Search</a>
+              <a href="/array/binary-search/">Binary Search</a>
+              <a href="/array/sliding-window/">Sliding Window</a>
+              <a href="/array/prefix-sum/">Prefix Sum</a>
+              <a href="/array/sieve/">Sieve of Eratosthenes</a>
+              <a href="/array/pascalTraingle/">Pascal Triangle</a>
+            </div>
+          </li>
+          <li>
+            <a href="" class="">Pathfinding & Graph</a>
+            <div class="dropdown">
+              <a href="/pathfinding/astar/">A*</a>
+              <a href="/graph/BST/">Binary Search Tree</a>
+            </div>
+          </li>
+          <li><a href="/team">Team</a></li>
+        </ul>
+        <a
+          href="https://github.com/ahmedabdulnasser/algovisualizer"
+          target="_blank"
+        >
+          <img
+            src="/assets/img/github.png"
+            alt="Source code on Github"
+            id="github-link"
+          />
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section class="info">
+        <h2>Binary Search</h2>
+      </section>
+      <section id="previewArr"></section>
+      <section class="summtion">
+        <p id="currElement">Mid:</p>
+        <p id="targetValue">Target:</p>
+      </section>
+      <section class="dod">
+        <section id="array-input" class="user-input">
+          <input
+            id="arr-input"
+            type="text"
+            placeholder="Comma-separated array values"
+          />
+          <button id="render-btn">Render</button>
+          <span id="random-btn"
+            ><i class="fas fa-dice" id="dice-icon"></i
+          ></span>
+        </section>
+        <section id="target-input" class="user-input">
+          <input
+            id="target-input-field"
+            type="text"
+            placeholder="Enter target number"
+          />
+        </section>
+
+        <section id="controls">
+          <button id="decSpeed"><<</button>
+          <span id="speedValue">1x</span>
+          <button id="incSpeed">>></button>
+          <button id="playBtn">play</button>
+          <button id="pauseBtn">pause</button>
+        </section>
+      </section>
+      <div class="popup">
+        <div class="popup-content">
+          <h2>Result</h2>
+          <p id="result"></p>
+          <button id="playAgainBtn">Restart</button>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/js/array/main.js"></script>
+    <!-- <script src="./binarySearch.js"></script> -->
+  </body>
 </html>
