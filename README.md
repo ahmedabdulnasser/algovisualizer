@@ -1,64 +1,69 @@
-# Algorhythm
+# Algorhythm 🚀
 
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow) ![License](https://img.shields.io/badge/License-MIT-blue) ![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow) ![License](https://img.shields.io/badge/License-MIT-blue) ![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen) [![Demo](https://img.shields.io/badge/Demo-Live-blue)](#demo)
 
 **Visualize Algorithms & Data Structures Step-by-Step**
 
 ---
 
-## Table of Contents
-- [Description](#description)
-- [Key Features](#key-features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgments)
+## 📌 Table of Contents
+- [📖 Description](#description)
+- [✨ Key Features](#key-features)
+- [🛠️ Technologies Used](#technologies-used)
+- [🎥 Demo](#demo)
+- [📥 Installation](#installation)
+- [🤝 Contributing](#contributing)
+- [📜 License](#license)
+- [👨‍💻 Authors](#authors)
+- [🙏 Acknowledgments](#acknowledgments)
 
 ---
 
-## Description
-
+## 📖 Description
 An open-source algorithm visualizer developed for the **Information Technology Institute (ITI) Alexandria**, Open Source Application Development Track, Intake 45. This project offers an interactive platform to visualize and understand the mechanics of fundamental algorithms and data structures, enhancing learning through step-by-step execution.
 
 ---
 
-## Key Features
+## ✨ Key Features
 
-### Sorting Algorithms
+### 📊 Sorting Algorithms
 - **Bubble Sort:** Visualize pairwise comparisons and swaps to sort elements in ascending/descending order.
 - **Selection Sort:** Observe the selection of the smallest element and its placement in the sorted subarray.
 - **Quick Sort:** Track the divide-and-conquer approach with pivot partitioning for efficient sorting.
 
-### Searching Algorithms
+### 🔍 Searching Algorithms
 - **Linear Search:** Follow sequential checks to locate a target element in an unsorted array.
 - **Binary Search:** Explore the divide-and-conquer strategy in a sorted array with logarithmic time complexity.
 
-### Pathfinding Algorithms
+### 🛤️ Pathfinding Algorithms
 - **A\* Search:** Discover optimal paths using heuristic-driven graph traversal between start and end nodes.
 
-### Data Structures
+### 🌳 Data Structures
 - **Binary Search Tree (BST):** Visualize insertion, deletion, and search operations in a self-balancing tree structure.
 
-### Mathematical Algorithms
+### 🔢 Mathematical Algorithms
 - **Sieve of Eratosthenes:** Step through prime number identification by iteratively eliminating multiples.
 - **Pascal's Triangle:** Generate and explore binomial coefficients in a triangular array format.
 
-### Algorithmic Techniques
+### ⚡ Algorithmic Techniques
 - **Sliding Window:** Analyze efficient subarray/substring computations with a dynamic window size.
 - **Prefix Sum:** Precompute cumulative sums to enable constant-time range sum queries.
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 - **JavaScript (ES6):** Core logic for algorithm visualization and interactivity.
 - **HTML5:** Structure and layout of the web interface.
 - **CSS3:** Styling, animations, and responsive design.
 
 ---
 
-## Installation
+## 🎥 Demo
+[![Live Demo](https://img.shields.io/badge/Demo-Click%20Here-blue)](https://drive.google.com/file/d/1rhAyQgJHhSxZFp8LBvPg38-1UgN3DScE/view)
+
+---
+
+## 📥 Installation
 1. Clone the repository:
    ```bash
    git clone https://github.com/ahmedabdulnasser/algovisualizer.git
@@ -71,7 +76,7 @@ An open-source algorithm visualizer developed for the **Information Technology I
 
 ---
 
-## Contributing
+## 🤝 Contributing
 Contributions are welcome! Please follow these steps:
 1. Fork the repository.
 2. Create a feature branch (`git checkout -b feature/your-feature`).
@@ -83,12 +88,12 @@ For major changes, please open an issue first to discuss proposed improvements.
 
 ---
 
-## License
+## 📜 License
 This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Authors
+## 👨‍💻 Authors
 - **Ahmed Abdelnasser**
 - **Omar Abdellatif**
 - **Ahmed Ezzat**
@@ -96,7 +101,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Acknowledgments
+## 🙏 Acknowledgments
 Developed as part of the **ITI Open Source Application Development Track, Intake 45**, under the supervision of:
 - **Eng. Arwa Osama**
 - **Eng. Noha Salah**
